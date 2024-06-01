@@ -6,7 +6,30 @@
              xmlns:local="clr-namespace:DeliveryApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
-        <TextBlock Text="Formularza rejestracji, nazwa i haslo. W Katalogu Data/dbsets jest user i jakie pola ma" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Username:" Style="{StaticResource WhiteTextLabelStyle}" VerticalAlignment="Center"/>
+        <TextBox Name="UsernameTextBox" Grid.Column="1" Style="{StaticResource WhiteTextBoxStyle}" VerticalAlignment="Center"/>
+
+        <Label Grid.Row="1" Content="Password:" Style="{StaticResource WhiteTextLabelStyle}" VerticalAlignment="Center"/>
+        <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhitePasswordBoxStyle}" VerticalAlignment="Center"/>
+
+        <Label Grid.Row="2" Content="Confirm Password:" Style="{StaticResource WhiteTextLabelStyle}" VerticalAlignment="Center"/>
+        <PasswordBox Name="ConfirmPasswordBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource WhitePasswordBoxStyle}" VerticalAlignment="Center"/>
+
+        <CheckBox Name="ShowPasswordCheckBox" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="Show Password" Style="{StaticResource ShowPasswordCheckBoxStyle}" VerticalAlignment="Center"/>
+
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Register" Click="RegisterButton_Click" Style="{StaticResource WhiteButtonStyle}" />
     </Grid>
 </UserControl>

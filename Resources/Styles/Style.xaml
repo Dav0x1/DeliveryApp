@@ -5,7 +5,7 @@
     <Style x:Key="WindowStyle" TargetType="Window">
         <Setter Property="Background" Value="#25272A"/>
         <Setter Property="Width" Value="900"/>
-        <Setter Property="Height" Value="700"/>
+        <Setter Property="Height" Value="700"/> 
         <Setter Property="WindowStyle" Value="None"/>
     </Style>
     <!-- Panel -->
@@ -24,6 +24,49 @@
         <Setter Property="Margin" Value="0,30,0,0"/>
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
+
+    <!-- Label Style -->
+    <Style x:Key="WhiteTextLabelStyle" TargetType="Label">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+    </Style>
+
+    <!-- TextBox Style -->
+    <Style x:Key="WhiteTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="#25272A"/>
+        <Setter Property="Margin" Value="0 10 20 10"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
+
+    <!-- PasswordBox Style -->
+    <Style x:Key="WhitePasswordBoxStyle" TargetType="PasswordBox">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="#25272A"/>
+        <Setter Property="Margin" Value="0 10 20 10"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
+
+    <!-- Button Style -->
+    <Style x:Key="WhiteButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="#3D4045"/>
+        <Setter Property="Margin" Value="10 10 20 10"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+    </Style>
+
+    <!-- CheckBox Style -->
+    <Style x:Key="ShowPasswordCheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Margin" Value="0 0 20 10"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+
 
 
 

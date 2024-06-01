@@ -7,6 +7,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Formularza logowania, login haslo przycisk zaloguj" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Style="{StaticResource WhiteTextLabelStyle}" >Login:</Label>
+        <TextBox Name="Login" Grid.Column="1" Style="{StaticResource WhiteTextBoxStyle}"/>
+
+        <Label Grid.Row="1" Style="{StaticResource WhiteTextLabelStyle}">Password:</Label>
+        <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhitePasswordBoxStyle}"/>
+        <TextBox Name="PasswordTextBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhiteTextBoxStyle}" Visibility="Collapsed"/>
+
+        <CheckBox Name="ShowPasswordCheckBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Content="Show Password" 
+          Style="{StaticResource ShowPasswordCheckBoxStyle}"
+          Checked="ShowPasswordCheckBox_Checked" Unchecked="ShowPasswordCheckBox_Unchecked"/>
+
+        <Button Name="LogIn" Grid.Column="1" Grid.Row="2" Style="{StaticResource WhiteButtonStyle}">Log In</Button>
+        
     </Grid>
 </UserControl>

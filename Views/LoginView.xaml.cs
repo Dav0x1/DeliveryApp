@@ -20,9 +20,29 @@ namespace DeliveryApp.Views
     /// </summary>
     public partial class LoginView : UserControl
     {
-        public LoginView()
-        {
-            InitializeComponent();
-        }
-    }
+		public LoginView()
+		{
+			InitializeComponent();
+			PasswordBox.PasswordChanged += PasswordBox_PasswordChanged;
+		}
+
+		private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+		{
+			PasswordTextBox.Text = PasswordBox.Password;
+		}
+
+		private void ShowPasswordCheckBox_Checked(object sender, RoutedEventArgs e)
+		{
+			PasswordBox.Visibility = Visibility.Collapsed;
+			PasswordTextBox.Visibility = Visibility.Visible;
+			PasswordTextBox.Text = PasswordBox.Password;
+		}
+
+		private void ShowPasswordCheckBox_Unchecked(object sender, RoutedEventArgs e)
+		{
+			PasswordBox.Visibility = Visibility.Visible;
+			PasswordTextBox.Visibility = Visibility.Collapsed;
+			PasswordBox.Password = PasswordTextBox.Text;
+		}
+	}
 }
