@@ -3,10 +3,136 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DeliveryApp"
+        xmlns:local="clr-namespace:DeliveryApp" 
+        xmlns:ViewModels="clr-namespace:DeliveryApp.ViewModels" 
+        xmlns:Views="clr-namespace:DeliveryApp.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" 
+        Style="{StaticResource WindowStyle}" >
+    
+    <Window.DataContext>
+            <ViewModels:MainWindowViewModel />
+    </Window.DataContext>
 
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type ViewModels:LoginViewModel}">
+            <Views:LoginView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModels:RegisterViewModel}">
+            <Views:RegisterView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModels:DeliveryListingViewModel}">
+            <Views:DeliveryListingView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModels:RoleListingViewModel}">
+            <Views:RoleListingView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModels:UserListingViewModel}">
+            <Views:UserListingView />
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Close App Button-->
+        <Button x:Name="CloseBtn"
+                Style="{StaticResource CloseBtnStyle}" 
+                Click="CloseBtn_Click"/>
+        
+        <!-- Left Panel -->
+        <StackPanel Style="{StaticResource StackPanelStyle}">
+
+            <!-- Panel Name -->
+            <TextBlock Text="Delivery App"
+                       Style="{StaticResource StackPanelNameStyle}" />
+
+            <!-- Menu -->
+            <Menu Background="Transparent"
+                  Margin="0,40,0,0">
+
+                <Menu.ItemsPanel>
+
+                    <ItemsPanelTemplate>
+
+                        <VirtualizingStackPanel Orientation="Vertical" />
+
+                    </ItemsPanelTemplate>
+
+                </Menu.ItemsPanel>
+
+                <!-- Login -->
+                <MenuItem Header="Login"
+                          Command="{Binding ShowLoginViewCommand}"
+                          Template="{StaticResource Menu_Template}">
+                    <MenuItem.Icon>
+                        <Image Source="Assets/img_home.png"
+                               Stretch="None" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <!-- Register -->
+                <MenuItem Header="Register"
+                          Command="{Binding ShowRegisterViewCommand}"
+                          Template="{StaticResource Menu_Template}">
+                    <MenuItem.Icon>
+                        <Image Source="Assets/img_home.png"
+                               Stretch="None" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <!-- Deliveries -->
+                <MenuItem Header="Deliveries"
+                          Command="{Binding ShowDeliveriesViewCommand}"
+                          Template="{StaticResource Menu_Template}">
+                    <MenuItem.Icon>
+                        <Image Source="Assets/img_home.png"
+                               Stretch="None" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <!-- Roles -->
+                <MenuItem Header="Roles"
+                          Command="{Binding ShowRolesViewCommand}"
+                          Template="{StaticResource Menu_Template}">
+                    <MenuItem.Icon>
+                        <Image Source="Assets/img_home.png"
+                               Stretch="None" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <!-- Users -->
+                <MenuItem Header="Users"
+                          Command="{Binding ShowUsersViewCommand}"
+                          Template="{StaticResource Menu_Template}">
+                    <MenuItem.Icon>
+                        <Image Source="Assets/img_home.png"
+                               Stretch="None" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <!-- Language -->
+                <MenuItem Header="Language"
+                          Template="{StaticResource Menu_SubMenu_Template}">
+                    <MenuItem.Icon>
+                        <Image Source="Assets/img_home.png"
+                               Stretch="None" />
+                    </MenuItem.Icon>
+
+                    <!-- Submenu - Polish -->
+                    <MenuItem Header="Polish"
+                              Template="{StaticResource Item_Template}">
+                    </MenuItem>
+
+                    <!-- Submenu - English -->
+                    <MenuItem Header="English"
+                              Template="{StaticResource Item_Template}">
+                    </MenuItem>
+
+                </MenuItem>
+
+            </Menu>
+        </StackPanel>
+        
+        <!-- Main Content -->
+        <ContentControl Content="{Binding CurrentViewModel}" Margin="230,69,0,0"/>
     </Grid>
 </Window>
