@@ -9,9 +9,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Assets\max_def.png" />
+    <None Remove="Resources\Assets\max_mo.png" />
+    <None Remove="Resources\Assets\shutdown_def.png" />
+    <None Remove="Resources\Assets\shutdown_mo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Assets\shutdown_def.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Assets\max_def.png" />
+    <Resource Include="Resources\Assets\max_mo.png" />
+    <Resource Include="Resources\Assets\shutdown_mo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\" />
   </ItemGroup>
 
 </Project>
