@@ -24,12 +24,17 @@
 
         <Label Grid.Row="1" Content="Password:" Style="{StaticResource WhiteTextLabelStyle}" VerticalAlignment="Center"/>
         <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhitePasswordBoxStyle}" VerticalAlignment="Center"/>
+        <TextBox Name="PasswordTextBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhiteTextBoxStyle}" Visibility="Collapsed"/>
 
+        
         <Label Grid.Row="2" Content="Confirm Password:" Style="{StaticResource WhiteTextLabelStyle}" VerticalAlignment="Center"/>
         <PasswordBox Name="ConfirmPasswordBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource WhitePasswordBoxStyle}" VerticalAlignment="Center"/>
+        <TextBox Name="ConfirmPasswordTextBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource WhiteTextBoxStyle}" Visibility="Collapsed"/>
 
-        <CheckBox Name="ShowPasswordCheckBox" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="Show Password" Style="{StaticResource ShowPasswordCheckBoxStyle}" VerticalAlignment="Center"/>
-
+        <CheckBox Name="ShowPasswordCheckBox" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="Show Password" 
+            Style="{StaticResource ShowPasswordCheckBoxStyle}"
+            Checked="ShowPasswordCheckBox_Checked" Unchecked="ShowPasswordCheckBox_Unchecked"/>
+        
         <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Register" Click="RegisterButton_Click" Style="{StaticResource WhiteButtonStyle}" />
     </Grid>
 </UserControl>
