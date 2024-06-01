@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using DeliveryApp.ViewModels;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,12 @@ namespace DeliveryApp
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowViewModel();
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
