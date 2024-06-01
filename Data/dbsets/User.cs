@@ -18,10 +18,6 @@ namespace DeliveryApp.Models
         public int RoleId { get; set; }
         public Role Role { get; set; }
 
-        public virtual ICollection<Report> Reports { get; set; } = new List<Report>();
-
         public virtual ICollection<Delivery> Deliveries { get; set; } = new List<Delivery>();
-
-        public virtual ICollection<Complaint> Complaints { get; set; } = new List<Complaint>();
     }
 }

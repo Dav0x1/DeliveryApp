@@ -17,10 +17,6 @@ namespace DeliveryApp.Data
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<DeliveryStatusUpdate> DeliveryStatusUpdates { get; set; }
 
-        public DbSet<Complaint> Complaints { get; set; }
-
-        public DbSet<Report> Reports { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
