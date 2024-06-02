@@ -1,4 +1,7 @@
-﻿using DeliveryApp.Commands;
+﻿
+using DeliveryApp.Commands;
+using DeliveryApp.Models;
+using DeliveryApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,16 +32,16 @@ namespace DeliveryApp.ViewModels
         public ICommand ShowRolesViewCommand { get; }
         public ICommand ShowUsersViewCommand { get; }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(DataService dataService)
         {
-            ShowLoginViewCommand = new BaseCommand(o => CurrentViewModel = new LoginViewModel());
-            ShowRegisterViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterViewModel());
+
+            ShowLoginViewCommand = new BaseCommand(o => CurrentViewModel = new LoginViewModel(dataService));
+            ShowRegisterViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterViewModel(dataService));
             ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel());
             ShowRolesViewCommand = new BaseCommand(o => CurrentViewModel = new RoleListingViewModel());
             ShowUsersViewCommand = new BaseCommand(o => CurrentViewModel = new UserListingViewModel());
 
-            // Ustaw początkowy widok
-            CurrentViewModel = new LoginViewModel();
+            CurrentViewModel = new LoginViewModel(dataService);
         }
     }
 }
