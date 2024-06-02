@@ -9,10 +9,6 @@
         mc:Ignorable="d"
         Title="MainWindow" 
         Style="{StaticResource WindowStyle}" >
-    
-    <Window.DataContext>
-            <ViewModels:MainWindowViewModel />
-    </Window.DataContext>
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type ViewModels:LoginViewModel}">
