@@ -1,9 +1,9 @@
-﻿
-using DeliveryApp.Commands;
+﻿using DeliveryApp.Commands;
 using DeliveryApp.Models;
 using DeliveryApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +14,15 @@ namespace DeliveryApp.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        // Command changing language
+        public ICommand ChangeLanguageCommand { get; }
+        // Commands for menu options
+        public ICommand ShowLoginViewCommand { get; }
+        public ICommand ShowRegisterViewCommand { get; }
+        public ICommand ShowDeliveriesViewCommand { get; }
+        public ICommand ShowRolesViewCommand { get; }
+        public ICommand ShowUsersViewCommand { get; }
+
         private ViewModelBase _currentViewModel;
 
         public ViewModelBase CurrentViewModel
@@ -26,22 +35,39 @@ namespace DeliveryApp.ViewModels
             }
         }
 
-        public ICommand ShowLoginViewCommand { get; }
-        public ICommand ShowRegisterViewCommand { get; }
-        public ICommand ShowDeliveriesViewCommand { get; }
-        public ICommand ShowRolesViewCommand { get; }
-        public ICommand ShowUsersViewCommand { get; }
-
         public MainWindowViewModel(DataService dataService)
         {
-
+            // Commands initialization for menu options
             ShowLoginViewCommand = new BaseCommand(o => CurrentViewModel = new LoginViewModel(dataService));
             ShowRegisterViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterViewModel(dataService));
             ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel());
             ShowRolesViewCommand = new BaseCommand(o => CurrentViewModel = new RoleListingViewModel());
             ShowUsersViewCommand = new BaseCommand(o => CurrentViewModel = new UserListingViewModel());
+            // Change language command initialization
+            ChangeLanguageCommand = new BaseCommand(param => SetLang((string)param));
 
             CurrentViewModel = new LoginViewModel(dataService);
+        }
+
+        // Function changing language
+        private void SetLang(string lang)
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
+
+            var dictionaries = Application.Current.Resources.MergedDictionaries;
+            var langDictionary = dictionaries.FirstOrDefault(d => d.Source != null && d.Source.OriginalString.Contains("/String/string."));
+
+            if (langDictionary != null)
+            {
+                dictionaries.Remove(langDictionary);
+            }
+
+            var newLangDictionary = new ResourceDictionary()
+            {
+                Source = new Uri($"Resources/String/string.{lang}.xaml", UriKind.Relative)
+            };
+            dictionaries.Add(newLangDictionary);
         }
     }
 }

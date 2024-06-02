@@ -38,7 +38,7 @@
         <StackPanel Style="{StaticResource StackPanelStyle}">
 
             <!-- Panel Name -->
-            <TextBlock Text="Delivery App"
+            <TextBlock Text="{DynamicResource MenuTitle}"
                        Style="{StaticResource StackPanelNameStyle}" />
 
             <!-- Menu -->
@@ -56,7 +56,7 @@
                 </Menu.ItemsPanel>
 
                 <!-- Login -->
-                <MenuItem Header="Login"
+                <MenuItem Header="{DynamicResource MenuItemHeader1}"
                           Command="{Binding ShowLoginViewCommand}"
                           Template="{StaticResource Menu_Template}">
                     <MenuItem.Icon>
@@ -66,7 +66,7 @@
                 </MenuItem>
 
                 <!-- Register -->
-                <MenuItem Header="Register"
+                <MenuItem Header="{DynamicResource MenuItemHeader2}"
                           Command="{Binding ShowRegisterViewCommand}"
                           Template="{StaticResource Menu_Template}">
                     <MenuItem.Icon>
@@ -76,7 +76,7 @@
                 </MenuItem>
 
                 <!-- Deliveries -->
-                <MenuItem Header="Deliveries"
+                <MenuItem Header="{DynamicResource MenuItemHeader3}"
                           Command="{Binding ShowDeliveriesViewCommand}"
                           Template="{StaticResource Menu_Template}">
                     <MenuItem.Icon>
@@ -86,7 +86,7 @@
                 </MenuItem>
 
                 <!-- Roles -->
-                <MenuItem Header="Roles"
+                <MenuItem Header="{DynamicResource MenuItemHeader4}"
                           Command="{Binding ShowRolesViewCommand}"
                           Template="{StaticResource Menu_Template}">
                     <MenuItem.Icon>
@@ -96,7 +96,7 @@
                 </MenuItem>
 
                 <!-- Users -->
-                <MenuItem Header="Users"
+                <MenuItem Header="{DynamicResource MenuItemHeader5}"
                           Command="{Binding ShowUsersViewCommand}"
                           Template="{StaticResource Menu_Template}">
                     <MenuItem.Icon>
@@ -106,7 +106,7 @@
                 </MenuItem>
 
                 <!-- Language -->
-                <MenuItem Header="Language"
+                <MenuItem Header="{DynamicResource MenuItemHeader6}"
                           Template="{StaticResource Menu_SubMenu_Template}">
                     <MenuItem.Icon>
                         <Image Source="Assets/img_home.png"
@@ -114,13 +114,17 @@
                     </MenuItem.Icon>
 
                     <!-- Submenu - Polish -->
-                    <MenuItem Header="Polish"
-                              Template="{StaticResource Item_Template}">
+                    <MenuItem Header="{DynamicResource MenuItemHeader6Submenu1}"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding ChangeLanguageCommand}"
+                              CommandParameter="pl">
                     </MenuItem>
 
                     <!-- Submenu - English -->
-                    <MenuItem Header="English"
-                              Template="{StaticResource Item_Template}">
+                    <MenuItem Header="{DynamicResource MenuItemHeader6Submenu2}"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding ChangeLanguageCommand}"
+                              CommandParameter="en">
                     </MenuItem>
 
                 </MenuItem>

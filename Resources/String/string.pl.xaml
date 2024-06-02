@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+    <System:String x:Key="MenuTitle">Delivery App</System:String>
+    <System:String x:Key="MenuItemHeader1">Logowanie</System:String>
+    <System:String x:Key="MenuItemHeader2">Rejestracja</System:String>
+    <System:String x:Key="MenuItemHeader3">Dostawy</System:String>
+    <System:String x:Key="MenuItemHeader4">Role</System:String>
+    <System:String x:Key="MenuItemHeader5">Uzytkownicy</System:String>
+    <System:String x:Key="MenuItemHeader6">Jezyk</System:String>
+    <System:String x:Key="MenuItemHeader6Submenu1">Polski</System:String>
+    <System:String x:Key="MenuItemHeader6Submenu2">Angielski</System:String>
+</ResourceDictionary>

@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 # Migration folder
 Migrations/
+
+# SQL Lite database
+products.db
