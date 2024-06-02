@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,9 @@ namespace DeliveryApp.Models
         public float Height { get; set; }
         public DateTime RegistrationDate { get; set; }
 
-        public DeliveryStatusUpdate CurrentStatus { get; set; }
-        public ICollection<DeliveryStatusUpdate> StatusHistory { get; set; } = new List<DeliveryStatusUpdate>();
+        public int? CurrentStatusId { get; set; }
+        [ForeignKey("CurrentStatusId")]
+        public virtual DeliveryStatusUpdate CurrentStatus { get; set; }
+        public virtual ICollection<DeliveryStatusUpdate> StatusHistory { get; set; } = new List<DeliveryStatusUpdate>();
     }
 }
