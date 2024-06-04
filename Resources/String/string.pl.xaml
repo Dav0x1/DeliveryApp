@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:System="clr-namespace:System;assembly=System.Runtime">
+    
     <System:String x:Key="MenuTitle">Delivery App</System:String>
     <System:String x:Key="MenuItemHeader1">Logowanie</System:String>
     <System:String x:Key="MenuItemHeader2">Rejestracja</System:String>
@@ -10,4 +11,12 @@
     <System:String x:Key="MenuItemHeader6">Jezyk</System:String>
     <System:String x:Key="MenuItemHeader6Submenu1">Polski</System:String>
     <System:String x:Key="MenuItemHeader6Submenu2">Angielski</System:String>
+
+    <System:String x:Key="Login">Nazwa użytkownika:</System:String>
+    <System:String x:Key="Password">Hasło:</System:String>
+    <System:String x:Key="ConfirmPassword">Powtórz hasło:</System:String>
+    <System:String x:Key="ShowPassword">Pokaż hasło</System:String>
+    <System:String x:Key="LogIn">Zaloguj się</System:String>
+    <System:String x:Key="Register">Zarejestruj się</System:String>
+    
 </ResourceDictionary>
