@@ -64,8 +64,8 @@
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
-                        <Image Source="Assets/img_home.png"
-                               Stretch="None" />
+                        <Image Source="/Resources/Assets/sign-in-alt.png"
+                               Width="20" Height="20" />
                     </MenuItem.Icon>
                 </MenuItem>
 
@@ -75,8 +75,8 @@
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
-                        <Image Source="Assets/img_home.png"
-                               Stretch="None" />
+                        <Image Source="/Resources/Assets/enter.png"
+                                Width="20" Height="20" />
                     </MenuItem.Icon>
                 </MenuItem>
 
@@ -86,8 +86,8 @@
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
-                        <Image Source="Assets/img_home.png"
-                               Stretch="None" />
+                        <Image Source="/Resources/Assets/shipping-fast.png"
+                                Width="20" Height="20" />
                     </MenuItem.Icon>
                 </MenuItem>
 
@@ -97,8 +97,8 @@
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
-                        <Image Source="Assets/img_home.png"
-                               Stretch="None" />
+                        <Image Source="/Resources/Assets/user-trust.png"
+                                Width="20" Height="20" />
                     </MenuItem.Icon>
                 </MenuItem>
 
@@ -108,8 +108,8 @@
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
-                        <Image Source="Assets/img_home.png"
-                               Stretch="None" />
+                        <Image Source="/Resources/Assets/users.png"
+                                Width="20" Height="20" />
                     </MenuItem.Icon>
                 </MenuItem>
 
@@ -117,8 +117,8 @@
                 <MenuItem Header="{DynamicResource MenuItemHeader6}"
                           Template="{StaticResource Menu_SubMenu_Template}">
                     <MenuItem.Icon>
-                        <Image Source="Assets/img_home.png"
-                               Stretch="None" />
+                        <Image Source="/Resources/Assets/language.png"
+                                Width="20" Height="20" />
                     </MenuItem.Icon>
 
                     <!-- Submenu - Polish -->
@@ -135,6 +135,17 @@
                               CommandParameter="en">
                     </MenuItem>
 
+                </MenuItem>
+
+                <!-- Logout -->
+                <MenuItem Header="{DynamicResource MenuItemHeader7}"
+                          Command="{Binding LogoutCommand}"
+                          Template="{StaticResource Menu_Template}"
+                          Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Assets/leave.png"
+                                Width="20" Height="20" />
+                    </MenuItem.Icon>
                 </MenuItem>
 
             </Menu>
