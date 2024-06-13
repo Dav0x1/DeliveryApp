@@ -18,17 +18,20 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="{DynamicResource Login}" Style="{StaticResource WhiteTextLabelStyle}"/>
-        <TextBox Name="Login" Grid.Column="1" Style="{StaticResource WhiteTextBoxStyle}"/>
+        <TextBox Name="Login" Grid.Column="1" Style="{StaticResource WhiteTextBoxStyle}"
+                 Text="{Binding Username}"/>
 
         <Label Grid.Row="1" Content="{DynamicResource Password}" Style="{StaticResource WhiteTextLabelStyle}"/>
-        <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhitePasswordBoxStyle}"/>
-        <TextBox Name="PasswordTextBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhiteTextBoxStyle}" Visibility="Collapsed"/>
+        <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhitePasswordBoxStyle}"
+                     PasswordChanged="PasswordChanged"/>
+        <TextBox Name="PasswordTextBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhiteTextBoxStyle}" Visibility="Collapsed"
+                 Text="{Binding Password}"/>
 
         <CheckBox Name="ShowPasswordCheckBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Content="{DynamicResource ShowPassword}" 
           Style="{StaticResource ShowPasswordCheckBoxStyle}"
           Checked="ShowPasswordCheckBox_Checked" Unchecked="ShowPasswordCheckBox_Unchecked"/>
 
-        <Button Name="LogIn" Grid.Column="1" Grid.Row="2" Content="{DynamicResource LogIn}" Style="{StaticResource WhiteButtonStyle}"/>
+        <Button Name="LogIn" Grid.Column="1" Grid.Row="2" Content="{DynamicResource LogIn}" Style="{StaticResource WhiteButtonStyle}" Command="{Binding loginBtnClick}"/>
 
     </Grid>
 </UserControl>

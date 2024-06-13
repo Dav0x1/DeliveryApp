@@ -22,6 +22,7 @@ namespace DeliveryApp
                     services.AddDbContext<AppDbContext>(ServiceLifetime.Singleton);
 
                     services.AddSingleton<DataService>();
+                    services.AddSingleton<AuthorizationService>();
 
                     services.AddSingleton<MainWindowViewModel>();
                     services.AddSingleton(s => new MainWindow()

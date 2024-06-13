@@ -1,4 +1,5 @@
 ﻿//using DeliveryApp.Services;
+using DeliveryApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,19 +22,15 @@ namespace DeliveryApp.Views
     /// </summary>
     public partial class RegisterView : UserControl
     {
-		//private readonly UserService _userService;
-
 		public RegisterView()
 		{
 			InitializeComponent();
-			//_userService = new UserService(); // Inicjalizacja usługi użytkownika
 		}
 		private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
 		{
 			PasswordTextBox.Text = PasswordBox.Password;
 			ConfirmPasswordTextBox.Text = ConfirmPasswordBox.Password;
 		}
-
 		private void ShowPasswordCheckBox_Checked(object sender, RoutedEventArgs e)
 		{
 			PasswordBox.Visibility = Visibility.Collapsed;
@@ -44,7 +41,6 @@ namespace DeliveryApp.Views
 			ConfirmPasswordTextBox.Visibility = Visibility.Visible;
 			ConfirmPasswordTextBox.Text = ConfirmPasswordBox.Password;
 		}
-
 		private void ShowPasswordCheckBox_Unchecked(object sender, RoutedEventArgs e)
 		{
 			PasswordBox.Visibility = Visibility.Visible;
@@ -56,32 +52,22 @@ namespace DeliveryApp.Views
 			ConfirmPasswordBox.Password = ConfirmPasswordTextBox.Text;
 		}
 
-		private async void RegisterButton_Click(object sender, RoutedEventArgs e)
-		{
-			string username = UsernameTextBox.Text;
-			string password = PasswordBox.Password;
-			string confirmPassword = ConfirmPasswordBox.Password;
-
-			// Ewentualna dodatkowa walidacja - TUTAJ
-
-			// Sprawdzenie czy hasła zgodne
-			if (password != confirmPassword)
+        private void PasswordChanged(object sender, RoutedEventArgs e)
+        {
+			if (sender == PasswordBox)
 			{
-				MessageBox.Show("Passwords do not match!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-				return;
+				if (DataContext is RegisterViewModel viewModel)
+				{
+					viewModel.Password = PasswordBox.Password;
+				}
 			}
-
-			// Rejestracja 
-			/*bool registrationResult = await _userService.RegisterUserAsync(username, password);
-
-			if (registrationResult)
+			else if (sender == ConfirmPasswordBox)
 			{
-				MessageBox.Show("Registration successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-			}
-			else
-			{
-				MessageBox.Show("Registration failed! Username already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-			}*/
-		}
-	}
+                if (DataContext is RegisterViewModel viewModel)
+                {
+                    viewModel.ConfirmPassword = ConfirmPasswordBox.Password;
+                }
+            }
+        }
+    }
 }

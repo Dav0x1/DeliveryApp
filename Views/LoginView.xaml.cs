@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeliveryApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,5 +45,13 @@ namespace DeliveryApp.Views
 			PasswordTextBox.Visibility = Visibility.Collapsed;
 			PasswordBox.Password = PasswordTextBox.Text;
 		}
-	}
+
+        private void PasswordChanged(object sender, RoutedEventArgs e)
+        {
+			if (DataContext is LoginViewModel viewModel)
+			{
+				viewModel.Password = PasswordBox.Password;
+			}
+        }
+    }
 }

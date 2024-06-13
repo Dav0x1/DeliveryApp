@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DeliveryApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -19,22 +19,27 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <!-- Login -->
         <Label Content="{DynamicResource Login}" Style="{StaticResource WhiteTextLabelStyle}" VerticalAlignment="Center"/>
-        <TextBox Name="UsernameTextBox" Grid.Column="1" Style="{StaticResource WhiteTextBoxStyle}" VerticalAlignment="Center"/>
-
+        <TextBox Name="UsernameTextBox" Grid.Column="1" Style="{StaticResource WhiteTextBoxStyle}" VerticalAlignment="Center"
+                 Text="{Binding Username}"/>
+        <!-- Password -->
         <Label Grid.Row="1" Content="{DynamicResource Password}" Style="{StaticResource WhiteTextLabelStyle}" VerticalAlignment="Center"/>
-        <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhitePasswordBoxStyle}" VerticalAlignment="Center"/>
-        <TextBox Name="PasswordTextBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhiteTextBoxStyle}" Visibility="Collapsed"/>
-
-        
+        <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhitePasswordBoxStyle}" VerticalAlignment="Center"
+                     PasswordChanged="PasswordChanged"/>
+        <TextBox Name="PasswordTextBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource WhiteTextBoxStyle}" Visibility="Collapsed"
+                 Text="{Binding Password}"/>
+        <!-- Confirm password -->
         <Label Grid.Row="2" Content="{DynamicResource ConfirmPassword}" Style="{StaticResource WhiteTextLabelStyle}" VerticalAlignment="Center"/>
-        <PasswordBox Name="ConfirmPasswordBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource WhitePasswordBoxStyle}" VerticalAlignment="Center"/>
-        <TextBox Name="ConfirmPasswordTextBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource WhiteTextBoxStyle}" Visibility="Collapsed"/>
+        <PasswordBox Name="ConfirmPasswordBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource WhitePasswordBoxStyle}" VerticalAlignment="Center"
+                     PasswordChanged="PasswordChanged" />
+        <TextBox Name="ConfirmPasswordTextBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource WhiteTextBoxStyle}" Visibility="Collapsed"
+                 Text="{Binding ConfirmPassword}"/>
 
         <CheckBox Name="ShowPasswordCheckBox" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="{DynamicResource ShowPassword}" 
             Style="{StaticResource ShowPasswordCheckBoxStyle}"
             Checked="ShowPasswordCheckBox_Checked" Unchecked="ShowPasswordCheckBox_Unchecked"/>
-        
-        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="{DynamicResource Register}" Click="RegisterButton_Click" Style="{StaticResource WhiteButtonStyle}" />
+
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="{DynamicResource Register}" Command="{Binding registerBtnClick}" Style="{StaticResource WhiteButtonStyle}" />
     </Grid>
 </UserControl>

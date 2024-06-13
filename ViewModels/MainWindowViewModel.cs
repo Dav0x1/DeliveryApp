@@ -3,6 +3,7 @@ using DeliveryApp.Models;
 using DeliveryApp.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace DeliveryApp.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        private AuthorizationService _authorizationService;
+        private bool _isLogged;
         // Command changing language
         public ICommand ChangeLanguageCommand { get; }
         // Commands for menu options
@@ -35,18 +38,44 @@ namespace DeliveryApp.ViewModels
             }
         }
 
-        public MainWindowViewModel(DataService dataService)
+        public MainWindowViewModel(AuthorizationService authorizationService)
         {
+            _authorizationService = authorizationService;
+            _authorizationService.LoginStatusChanged += OnLoginStatusChanged;
+            _isLogged = _authorizationService.isLoggedStatus();
             // Commands initialization for menu options
-            ShowLoginViewCommand = new BaseCommand(o => CurrentViewModel = new LoginViewModel(dataService));
-            ShowRegisterViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterViewModel(dataService));
+            ShowLoginViewCommand = new BaseCommand(o => CurrentViewModel = new LoginViewModel(authorizationService));
+            ShowRegisterViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterViewModel(authorizationService));
             ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel());
             ShowRolesViewCommand = new BaseCommand(o => CurrentViewModel = new RoleListingViewModel());
             ShowUsersViewCommand = new BaseCommand(o => CurrentViewModel = new UserListingViewModel());
             // Change language command initialization
             ChangeLanguageCommand = new BaseCommand(param => SetLang((string)param));
 
-            CurrentViewModel = new LoginViewModel(dataService);
+            CurrentViewModel = new LoginViewModel(authorizationService);
+        }
+
+        public bool IsLogged
+        {
+            get => _isLogged;
+            set
+            {
+                _isLogged = value;
+                OnPropertyChange(nameof(IsLogged));
+            }
+        }
+
+        private void OnLoginStatusChanged(object sender, EventArgs e)
+        {
+            IsLogged = _authorizationService.isLoggedStatus();
+            if (IsLogged)
+            {
+                ShowDeliveriesViewCommand.Execute(null);
+            }
+            else
+            {
+                ShowLoginViewCommand.Execute(null);
+            }
         }
 
         // Function changing language
