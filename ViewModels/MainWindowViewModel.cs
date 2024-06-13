@@ -25,6 +25,7 @@ namespace DeliveryApp.ViewModels
         public ICommand ShowDeliveriesViewCommand { get; }
         public ICommand ShowRolesViewCommand { get; }
         public ICommand ShowUsersViewCommand { get; }
+        public ICommand LogoutCommand { get; }
 
         private ViewModelBase _currentViewModel;
 
@@ -49,6 +50,7 @@ namespace DeliveryApp.ViewModels
             ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel());
             ShowRolesViewCommand = new BaseCommand(o => CurrentViewModel = new RoleListingViewModel());
             ShowUsersViewCommand = new BaseCommand(o => CurrentViewModel = new UserListingViewModel());
+            LogoutCommand = new BaseCommand(o => _authorizationService.logout());
             // Change language command initialization
             ChangeLanguageCommand = new BaseCommand(param => SetLang((string)param));
 

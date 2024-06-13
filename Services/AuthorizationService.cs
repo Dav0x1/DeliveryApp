@@ -59,6 +59,13 @@ namespace DeliveryApp.Services
             return "User has been added";
         }
 
+        public void logout()
+        {
+            isLogged = false;
+            loggedUser = null;
+            OnLoginStatusChanged();
+        }
+
         private bool ValidateUsername(string username)
         {
             // NEED TO BE REMOVE

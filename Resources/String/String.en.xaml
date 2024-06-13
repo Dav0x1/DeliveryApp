@@ -11,7 +11,8 @@
     <System:String x:Key="MenuItemHeader6">Language</System:String>
     <System:String x:Key="MenuItemHeader6Submenu1">Polish</System:String>
     <System:String x:Key="MenuItemHeader6Submenu2">English</System:String>
-
+    <System:String x:Key="MenuItemHeader7">Logout</System:String>
+    
     <System:String x:Key="Login">Login:</System:String>
     <System:String x:Key="Password">Password:</System:String>
     <System:String x:Key="ConfirmPassword">Confirm Password:</System:String>
