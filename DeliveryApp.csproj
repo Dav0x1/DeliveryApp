@@ -20,7 +20,6 @@
     <None Remove="Resources\Assets\sign-in-alt.png" />
     <None Remove="Resources\Assets\user-trust.png" />
     <None Remove="Resources\Assets\users.png" />
-    <None Remove="sign-in-alt.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,7 +37,6 @@
     <Resource Include="Resources\Assets\sign-in-alt.png" />
     <Resource Include="Resources\Assets\user-trust.png" />
     <Resource Include="Resources\Assets\users.png" />
-    <Resource Include="sign-in-alt.png" />
   </ItemGroup>
 
   <ItemGroup>
