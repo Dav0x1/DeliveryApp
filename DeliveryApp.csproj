@@ -9,13 +9,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Assets\enter.png" />
+    <None Remove="Resources\Assets\language.png" />
+    <None Remove="Resources\Assets\leave.png" />
     <None Remove="Resources\Assets\max_def.png" />
     <None Remove="Resources\Assets\max_mo.png" />
+    <None Remove="Resources\Assets\shipping-fast.png" />
     <None Remove="Resources\Assets\shutdown_def.png" />
     <None Remove="Resources\Assets\shutdown_mo.png" />
+    <None Remove="Resources\Assets\sign-in-alt.png" />
+    <None Remove="Resources\Assets\user-trust.png" />
+    <None Remove="Resources\Assets\users.png" />
+    <None Remove="sign-in-alt.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Assets\enter.png" />
+    <Resource Include="Resources\Assets\language.png" />
+    <Resource Include="Resources\Assets\leave.png" />
+    <Resource Include="Resources\Assets\shipping-fast.png" />
     <Resource Include="Resources\Assets\shutdown_def.png" />
   </ItemGroup>
 
@@ -23,6 +35,10 @@
     <Resource Include="Resources\Assets\max_def.png" />
     <Resource Include="Resources\Assets\max_mo.png" />
     <Resource Include="Resources\Assets\shutdown_mo.png" />
+    <Resource Include="Resources\Assets\sign-in-alt.png" />
+    <Resource Include="Resources\Assets\user-trust.png" />
+    <Resource Include="Resources\Assets\users.png" />
+    <Resource Include="sign-in-alt.png" />
   </ItemGroup>
 
   <ItemGroup>
