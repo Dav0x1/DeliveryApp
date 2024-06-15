@@ -19,9 +19,6 @@ namespace DeliveryApp.Models
         public float Height { get; set; }
         public DateTime RegistrationDate { get; set; }
 
-        public int? CurrentStatusId { get; set; }
-        [ForeignKey("CurrentStatusId")]
-        public virtual DeliveryStatusUpdate CurrentStatus { get; set; }
         public virtual ICollection<DeliveryStatusUpdate> StatusHistory { get; set; } = new List<DeliveryStatusUpdate>();
     }
 }

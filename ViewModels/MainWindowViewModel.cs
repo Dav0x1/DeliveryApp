@@ -39,7 +39,7 @@ namespace DeliveryApp.ViewModels
             }
         }
 
-        public MainWindowViewModel(AuthorizationService authorizationService)
+        public MainWindowViewModel(AuthorizationService authorizationService,DeliveryService deliveryService)
         {
             _authorizationService = authorizationService;
             _authorizationService.LoginStatusChanged += OnLoginStatusChanged;
@@ -53,7 +53,6 @@ namespace DeliveryApp.ViewModels
             LogoutCommand = new BaseCommand(o => _authorizationService.logout());
             // Change language command initialization
             ChangeLanguageCommand = new BaseCommand(param => SetLang((string)param));
-
             CurrentViewModel = new LoginViewModel(authorizationService);
         }
 

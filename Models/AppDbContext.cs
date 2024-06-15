@@ -27,12 +27,6 @@ namespace DeliveryApp.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Delivery>()
-                .HasOne(d => d.CurrentStatus)
-                .WithMany()
-                .HasForeignKey(d => d.CurrentStatusId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Delivery>()
                 .HasMany(d => d.StatusHistory)
                 .WithOne(s => s.Delivery)
                 .HasForeignKey(s => s.DeliveryId)

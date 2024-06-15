@@ -60,5 +60,33 @@ namespace DeliveryApp.Services
 
             return true;
         }
+
+        public bool addDelivery(Delivery delivery)
+        {
+            try
+            {
+                _dbContext.Deliveries.Add(delivery);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool removeDelivery(Delivery delivery)
+        {
+            try
+            {
+                _dbContext.Deliveries.Remove(delivery);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

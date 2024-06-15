@@ -23,6 +23,7 @@ namespace DeliveryApp
 
                     services.AddSingleton<DataService>();
                     services.AddSingleton<AuthorizationService>();
+                    services.AddSingleton<DeliveryService>();
 
                     services.AddSingleton<MainWindowViewModel>();
                     services.AddSingleton(s => new MainWindow()
