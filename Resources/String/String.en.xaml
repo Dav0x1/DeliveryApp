@@ -34,6 +34,7 @@
     <System:String x:Key="Height">Height (cm):</System:String>
     <System:String x:Key="RegisterDelivery">Register Delivery</System:String>
 
+    <System:String x:Key="Title1">All delivery</System:String>
     <System:String x:Key="Details">Details</System:String>
     <System:String x:Key="ChangeStatus">Change status</System:String>
 

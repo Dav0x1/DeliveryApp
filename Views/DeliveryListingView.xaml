@@ -20,7 +20,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Lista wszystkich przesyłek" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="5"/>
+        <TextBlock Text="{DynamicResource Title1}" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="5"/>
         <TextBlock Text="{DynamicResource SenderAddress}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1"/>
         <TextBlock Text="{DynamicResource ReceiverAddress}" Style="{StaticResource HeadersTextBlockStyle}"  Grid.Row="1" Grid.Column="1"/>
         <TextBlock Text="{DynamicResource DeliveryType}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="2"/>
