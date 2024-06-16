@@ -24,6 +24,8 @@ namespace DeliveryApp
                     services.AddSingleton<DataService>();
                     services.AddSingleton<AuthorizationService>();
                     services.AddSingleton<DeliveryService>();
+                    services.AddSingleton<RoleSerivce>();
+                    services.AddSingleton<ScreenManagerService>();
 
                     services.AddSingleton<MainWindowViewModel>();
                     services.AddSingleton(s => new MainWindow()

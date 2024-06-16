@@ -16,46 +16,24 @@ namespace DeliveryApp.ViewModels
     public class MainWindowViewModel : ViewModelBase
     {
         private AuthorizationService _authorizationService;
+        private readonly ScreenManagerService _screenManagerService;
+        public ScreenManagerService ScreenManagerService
+        {
+            get => _screenManagerService;
+        }
+
         private bool _isLogged;
         // Command changing language
         public ICommand ChangeLanguageCommand { get; }
-        // Commands for menu options
-        public ICommand ShowLoginViewCommand { get; }
-        public ICommand ShowRegisterViewCommand { get; }
-		public ICommand ShowRegisterDeliveryViewCommand { get; }
-		public ICommand ShowDeliveriesViewCommand { get; }
-        public ICommand ShowRolesViewCommand { get; }
-        public ICommand ShowUsersViewCommand { get; }
-        public ICommand LogoutCommand { get; }
 
-        private ViewModelBase _currentViewModel;
-
-        public ViewModelBase CurrentViewModel
-        {
-            get => _currentViewModel;
-            set
-            {
-                _currentViewModel = value;
-                OnPropertyChange(nameof(CurrentViewModel));
-            }
-        }
-
-        public MainWindowViewModel(AuthorizationService authorizationService,DeliveryService deliveryService)
+        public MainWindowViewModel(AuthorizationService authorizationService,DeliveryService deliveryService, RoleSerivce roleService, ScreenManagerService screenManagerService)
         {
             _authorizationService = authorizationService;
+            _screenManagerService = screenManagerService;
             _authorizationService.LoginStatusChanged += OnLoginStatusChanged;
             _isLogged = _authorizationService.isLoggedStatus();
-            // Commands initialization for menu options
-            ShowLoginViewCommand = new BaseCommand(o => CurrentViewModel = new LoginViewModel(authorizationService));
-            ShowRegisterViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterViewModel(authorizationService));
-			ShowRegisterDeliveryViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterDeliveryViewModel(deliveryService));
-			ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel());
-            ShowRolesViewCommand = new BaseCommand(o => CurrentViewModel = new RoleListingViewModel());
-            ShowUsersViewCommand = new BaseCommand(o => CurrentViewModel = new UserListingViewModel());
-            LogoutCommand = new BaseCommand(o => _authorizationService.logout());
             // Change language command initialization
             ChangeLanguageCommand = new BaseCommand(param => SetLang((string)param));
-            CurrentViewModel = new LoginViewModel(authorizationService);
         }
 
         public bool IsLogged
@@ -73,12 +51,11 @@ namespace DeliveryApp.ViewModels
             IsLogged = _authorizationService.isLoggedStatus();
             if (IsLogged)
             {
-                ShowDeliveriesViewCommand.Execute(null);
-
+                ScreenManagerService.ShowDeliveriesViewCommand.Execute(null);
             }
             else
             {
-                ShowLoginViewCommand.Execute(null);
+                ScreenManagerService.ShowLoginViewCommand.Execute(null);
             }
         }
 

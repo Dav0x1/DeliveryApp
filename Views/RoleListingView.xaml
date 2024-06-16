@@ -6,7 +6,38 @@
              xmlns:local="clr-namespace:DeliveryApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
-        <TextBlock Text="Lista wszsytkich rol z ich uprawnieniami" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Wiersz dla przycisku "Add Role" -->
+            <RowDefinition Height="*"/>
+            <!-- Reszta przestrzeni dla ListView -->
+        </Grid.RowDefinitions>
+
+        <!-- Przycisk "Add Role" -->
+        <Button Content="Add Role"
+            Command="{Binding AddRoleViewCommand}"
+            Margin="10"
+            Grid.Row="0" />
+
+        <!-- ListView z rolami -->
+        <ListView ItemsSource="{Binding Roles}"
+              Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Display Deliveries" DisplayMemberBinding="{Binding CanDisplayDeliveries}" />
+                    <GridViewColumn Header="Register Delivery" DisplayMemberBinding="{Binding CanRegisterDelivery}" />
+                    <GridViewColumn Header="Change Status" DisplayMemberBinding="{Binding CanChangeDeliveryStatus}" />
+                    <GridViewColumn Header="Display Roles" DisplayMemberBinding="{Binding CanDisplayRoles}" />
+                    <GridViewColumn Header="Add Role" DisplayMemberBinding="{Binding CanAddRole}" />
+                    <GridViewColumn Header="Display Users" DisplayMemberBinding="{Binding CanDisplayUsers}" />
+                    <GridViewColumn Header="Modify User" DisplayMemberBinding="{Binding CanModifyUser}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
+
+
 </UserControl>

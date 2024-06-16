@@ -18,7 +18,5 @@ namespace DeliveryApp.Models
         public string Password { get; set; }
 
         public virtual Role? Role { get; set; }
-
-        public virtual ICollection<Delivery> Deliveries { get; set; } = new List<Delivery>();
     }
 }

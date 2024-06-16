@@ -30,6 +30,9 @@
         <DataTemplate DataType="{x:Type ViewModels:UserListingViewModel}">
             <Views:UserListingView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModels:AddRoleViewModel}">
+            <Views:AddRoleView />
+        </DataTemplate>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <helpers:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
     </Window.Resources>
@@ -63,7 +66,7 @@
 
                 <!-- Login -->
                 <MenuItem Header="{DynamicResource MenuItemHeader1}"
-                          Command="{Binding ShowLoginViewCommand}"
+                          Command="{Binding ScreenManagerService.ShowLoginViewCommand}"
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
@@ -74,7 +77,7 @@
 
                 <!-- Register -->
                 <MenuItem Header="{DynamicResource MenuItemHeader2}"
-                          Command="{Binding ShowRegisterViewCommand}"
+                          Command="{Binding ScreenManagerService.ShowRegisterViewCommand}"
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
@@ -85,7 +88,7 @@
 
                 <!-- Deliveries -->
                 <MenuItem Header="{DynamicResource MenuItemHeader3}"
-                          Command="{Binding ShowDeliveriesViewCommand}"
+                          Command="{Binding ScreenManagerService.ShowDeliveriesViewCommand}"
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
@@ -96,7 +99,7 @@
 
                 <!-- Add Delivery -->
                 <MenuItem Header="{DynamicResource MenuItemHeader3-add}"
-                          Command="{Binding ShowRegisterDeliveryViewCommand}"
+                          Command="{Binding ScreenManagerService.ShowRegisterDeliveryViewCommand}"
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
@@ -107,7 +110,7 @@
 
                 <!-- Roles -->
                 <MenuItem Header="{DynamicResource MenuItemHeader4}"
-                          Command="{Binding ShowRolesViewCommand}"
+                          Command="{Binding ScreenManagerService.ShowRolesViewCommand}"
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
@@ -118,7 +121,7 @@
 
                 <!-- Users -->
                 <MenuItem Header="{DynamicResource MenuItemHeader5}"
-                          Command="{Binding ShowUsersViewCommand}"
+                          Command="{Binding ScreenManagerService.ShowUsersViewCommand}"
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
@@ -153,7 +156,7 @@
 
                 <!-- Logout -->
                 <MenuItem Header="{DynamicResource MenuItemHeader7}"
-                          Command="{Binding LogoutCommand}"
+                          Command="{Binding ScreenManagerService.LogoutCommand}"
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
@@ -166,6 +169,6 @@
         </StackPanel>
         
         <!-- Main Content -->
-        <ContentControl Content="{Binding CurrentViewModel}" Margin="230,69,0,0"/>
+        <ContentControl Content="{Binding ScreenManagerService.CurrentViewModel}" Margin="230,69,0,0"/>
     </Grid>
 </Window>
