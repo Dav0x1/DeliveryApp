@@ -74,5 +74,20 @@
         <Setter Property="Margin" Value="10"/>
     </Style>
 
+    <!-- TextBlock Style for Headers -->
+    <Style x:Key="HeadersTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+
+    <!-- TextBlock Style -->
+    <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+
+
 
 </ResourceDictionary>

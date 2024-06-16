@@ -10,22 +10,54 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Lista wszystkich przesyłek" Style="{StaticResource TitleTextBlockStyle}" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <ListView ItemsSource="{Binding Deliveries}"  Grid.Row="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Nadawca" DisplayMemberBinding="{Binding SenderAddress}"/>
-                    <GridViewColumn Header="Odbiorca" DisplayMemberBinding="{Binding ReceiverAddress}"/>
-                    <GridViewColumn Header="Typ dostawy" DisplayMemberBinding="{Binding DeliveryType}"/>
-                    <GridViewColumn Header="Waga" DisplayMemberBinding="{Binding Weight, StringFormat={}{0} kg}"/>
-                    <GridViewColumn Header="Szerokość" DisplayMemberBinding="{Binding Width, StringFormat={}{0} cm}"/>
-                    <GridViewColumn Header="Długość" DisplayMemberBinding="{Binding Length, StringFormat={}{0} cm}"/>
-                    <GridViewColumn Header="Wysokość" DisplayMemberBinding="{Binding Height, StringFormat={}{0} cm}"/>
-                    <GridViewColumn Header="Data rejestracji" DisplayMemberBinding="{Binding RegistrationDate, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
-                </GridView>
-            </ListView.View>
+        <TextBlock Text="Lista wszystkich przesyłek" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="5"/>
+        <TextBlock Text="{DynamicResource SenderAddress}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1"/>
+        <TextBlock Text="{DynamicResource ReceiverAddress}" Style="{StaticResource HeadersTextBlockStyle}"  Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Text="{DynamicResource DeliveryType}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="2"/>
+        <TextBlock Text="{DynamicResource Weight}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="3"/>
+
+
+        <ListView ItemsSource="{Binding Deliveries}" Grid.Row="2" Grid.ColumnSpan="5" Background="#25272A" HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Background="#3D4045"  Grid.ColumnSpan="5">
+                        <Grid Grid.ColumnSpan="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding SenderAddress}" Style="{StaticResource TextBlockStyle}"/>
+                            <TextBlock Text="{Binding ReceiverAddress}" Style="{StaticResource TextBlockStyle}" Grid.Column="1" />
+                            <TextBlock Text="{Binding DeliveryType}" Style="{StaticResource TextBlockStyle}" Grid.Column="2" />
+                            <TextBlock Text="{Binding Weight, StringFormat={}{0} kg}" Style="{StaticResource TextBlockStyle}" Grid.Column="3" />
+                            <Button Content="{DynamicResource ChangeStatus}" Style="{StaticResource WhiteButtonStyle}"   Grid.Column="4"  
+                                    Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType=ListView}}" 
+                                    CommandParameter="{Binding}" Margin="5"/>
+                        </Grid>
+                        <Expander Header="{DynamicResource Details}" Background="#3D4045" Foreground="White"  Grid.ColumnSpan="5">
+                            <StackPanel Grid.ColumnSpan="5">
+                                <TextBlock Text="{Binding Width, StringFormat= 'Szerokość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
+                                <TextBlock Text="{Binding Length, StringFormat='Długość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
+                                <TextBlock Text="{Binding Height, StringFormat='Wysokość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
+                                <TextBlock Text="{Binding RegistrationDate, StringFormat='Data rejestracji: {0:dd/MM/yyyy HH:mm}'}" Style="{StaticResource TextBlockStyle}"/>
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </UserControl>

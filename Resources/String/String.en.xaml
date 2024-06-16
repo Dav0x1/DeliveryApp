@@ -27,11 +27,15 @@
     <System:String x:Key="SenderAddress">Sender Address:</System:String>
     <System:String x:Key="ReceiverAddress">Receiver Address:</System:String>
     <System:String x:Key="DeliveryType">Delivery Type:</System:String>
-    <System:String x:Key="Weight">Weight (kg):</System:String>
+    <System:String x:Key="WeightKG">Weight (kg):</System:String>
+    <System:String x:Key="Weight">Weight:</System:String>
     <System:String x:Key="Width">Width (cm):</System:String>
     <System:String x:Key="Length">Length (cm):</System:String>
     <System:String x:Key="Height">Height (cm):</System:String>
     <System:String x:Key="RegisterDelivery">Register Delivery</System:String>
+
+    <System:String x:Key="Details">Details</System:String>
+    <System:String x:Key="ChangeStatus">Change status</System:String>
 
     <System:String x:Key="AddRole">Add Role</System:String>
 </ResourceDictionary>
