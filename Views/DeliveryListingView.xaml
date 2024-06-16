@@ -7,7 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Lista wszystkich przesylek dostępnych , test" />
-        <TextBlock Text="halo"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Lista wszystkich przesyłek" Style="{StaticResource TitleTextBlockStyle}" />
+
+        <ListView ItemsSource="{Binding Deliveries}"  Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nadawca" DisplayMemberBinding="{Binding SenderAddress}"/>
+                    <GridViewColumn Header="Odbiorca" DisplayMemberBinding="{Binding ReceiverAddress}"/>
+                    <GridViewColumn Header="Typ dostawy" DisplayMemberBinding="{Binding DeliveryType}"/>
+                    <GridViewColumn Header="Waga" DisplayMemberBinding="{Binding Weight, StringFormat={}{0} kg}"/>
+                    <GridViewColumn Header="Szerokość" DisplayMemberBinding="{Binding Width, StringFormat={}{0} cm}"/>
+                    <GridViewColumn Header="Długość" DisplayMemberBinding="{Binding Length, StringFormat={}{0} cm}"/>
+                    <GridViewColumn Header="Wysokość" DisplayMemberBinding="{Binding Height, StringFormat={}{0} cm}"/>
+                    <GridViewColumn Header="Data rejestracji" DisplayMemberBinding="{Binding RegistrationDate, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>
