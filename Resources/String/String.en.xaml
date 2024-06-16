@@ -33,4 +33,5 @@
     <System:String x:Key="Height">Height (cm):</System:String>
     <System:String x:Key="RegisterDelivery">Register Delivery</System:String>
 
+    <System:String x:Key="AddRole">Add Role</System:String>
 </ResourceDictionary>

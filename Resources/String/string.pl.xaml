@@ -33,4 +33,5 @@
     <System:String x:Key="Height">Wysokość (cm):</System:String>
     <System:String x:Key="RegisterDelivery">Zarejestruj przesyłkę</System:String>
 
+    <System:String x:Key="AddRole">Dodaj role</System:String>
 </ResourceDictionary>

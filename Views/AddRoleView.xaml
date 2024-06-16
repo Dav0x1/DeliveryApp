@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="DeliveryApp.Views.AddRoleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DeliveryApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="20">
+            <!-- Role Name -->
+            <Label Content="Role Name:" />
+            <TextBox Text="{Binding Name}" Width="200" Margin="0 5"/>
+
+            <!-- Privileges -->
+            <StackPanel Orientation="Vertical" Margin="0 5">
+                <CheckBox Content="Can Display Deliveries" IsChecked="{Binding CanDisplayDeliveries}" />
+                <CheckBox Content="Can Register Delivery" IsChecked="{Binding CanRegisterDelivery}" />
+                <CheckBox Content="Can Change Delivery Status" IsChecked="{Binding CanChangeDeliveryStatus}" />
+                <CheckBox Content="Can Display Roles" IsChecked="{Binding CanDisplayRoles}" />
+                <CheckBox Content="Can Add Role" IsChecked="{Binding CanAddRole}" />
+                <CheckBox Content="Can Display Users" IsChecked="{Binding CanDisplayUsers}" />
+                <CheckBox Content="Can Modify User" IsChecked="{Binding CanModifyUser}" />
+            </StackPanel>
+
+            <!-- Add Role Button -->
+            <Button Content="Add Role" Command="{Binding AddRoleCommand}" Margin="0 20"/>
+        </StackPanel>
+
+        <!-- Main Content Placeholder -->
+        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}" Margin="20"/>
+    </Grid>
+</UserControl>

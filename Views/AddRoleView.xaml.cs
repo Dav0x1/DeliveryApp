@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DeliveryApp.Views
 {
     /// <summary>
-    /// Interaction logic for GenerateReportView.xaml
+    /// Interaction logic for AddRoleView.xaml
     /// </summary>
-    public partial class GenerateReportView : UserControl
+    public partial class AddRoleView : UserControl
     {
-        public GenerateReportView()
+        public AddRoleView()
         {
             InitializeComponent();
         }

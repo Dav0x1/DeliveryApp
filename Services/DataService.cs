@@ -55,6 +55,12 @@ namespace DeliveryApp.Services
                 return false;
             }
 
+            var role = _dbContext.Roles.FirstOrDefault(e => e.Name == "Default");
+            if (role != null)
+            {
+                user.Role = role;
+            }
+
             _dbContext.Users.Add(user);
             _dbContext.SaveChanges();
 
@@ -80,6 +86,20 @@ namespace DeliveryApp.Services
             try
             {
                 _dbContext.Deliveries.Remove(delivery);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool addRole(Role role)
+        {
+            try
+            {
+                _dbContext.Roles.Add(role);
                 _dbContext.SaveChanges();
                 return true;
             }

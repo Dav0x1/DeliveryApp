@@ -15,5 +15,13 @@ namespace DeliveryApp.Models
 
         public virtual ICollection<Privilege> Privileges { get; set; } = new List<Privilege>();
         public virtual ICollection<User> Users { get; set; } = new List<User>();
+
+        public bool CanDisplayDeliveries => Privileges.Any(p => p.Name == "CanDisplayDeliveries");
+        public bool CanRegisterDelivery => Privileges.Any(p => p.Name == "CanRegisterDelivery");
+        public bool CanChangeDeliveryStatus => Privileges.Any(p => p.Name == "CanChangeDeliveryStatus");
+        public bool CanDisplayRoles => Privileges.Any(p => p.Name == "CanDisplayRoles");
+        public bool CanAddRole => Privileges.Any(p => p.Name == "CanAddRole");
+        public bool CanDisplayUsers => Privileges.Any(p => p.Name == "CanDisplayUsers");
+        public bool CanModifyUser => Privileges.Any(p => p.Name == "CanModifyUser");
     }
 }
