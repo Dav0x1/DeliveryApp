@@ -43,9 +43,7 @@
                             <TextBlock Text="{Binding ReceiverAddress}" Style="{StaticResource TextBlockStyle}" Grid.Column="1" />
                             <TextBlock Text="{Binding DeliveryType}" Style="{StaticResource TextBlockStyle}" Grid.Column="2" />
                             <TextBlock Text="{Binding Weight, StringFormat={}{0} kg}" Style="{StaticResource TextBlockStyle}" Grid.Column="3" />
-                            <Button Content="{DynamicResource ChangeStatus}" Style="{StaticResource WhiteButtonStyle}"   Grid.Column="4"  
-                                    Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType=ListView}}" 
-                                    CommandParameter="{Binding}" Margin="5"/>
+                            <Button Content="{DynamicResource ChangeStatus}" Style="{StaticResource WhiteButtonStyle}"   Grid.Column="4" Margin="5"/>
                         </Grid>
                         <Expander Header="{DynamicResource Details}" Background="#3D4045" Foreground="White"  Grid.ColumnSpan="5">
                             <StackPanel Grid.ColumnSpan="5">
