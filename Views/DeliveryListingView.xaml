@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Lista wszystkich przesylek dostępnych" />
+        <TextBlock Text="Lista wszystkich przesylek dostępnych , test" />
+        <TextBlock Text="halo"/>
     </Grid>
 </UserControl>

@@ -21,6 +21,9 @@
         <DataTemplate DataType="{x:Type ViewModels:DeliveryListingViewModel}">
             <Views:DeliveryListingView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModels:RegisterDeliveryViewModel}">
+            <Views:RegisterDeliveryView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type ViewModels:RoleListingViewModel}">
             <Views:RoleListingView />
         </DataTemplate>
@@ -83,6 +86,17 @@
                 <!-- Deliveries -->
                 <MenuItem Header="{DynamicResource MenuItemHeader3}"
                           Command="{Binding ShowDeliveriesViewCommand}"
+                          Template="{StaticResource Menu_Template}"
+                          Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Assets/shipping-fast.png"
+                                Width="20" Height="20" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <!-- Add Delivery -->
+                <MenuItem Header="{DynamicResource MenuItemHeader3-add}"
+                          Command="{Binding ShowRegisterDeliveryViewCommand}"
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <MenuItem.Icon>

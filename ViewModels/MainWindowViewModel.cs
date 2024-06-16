@@ -22,7 +22,8 @@ namespace DeliveryApp.ViewModels
         // Commands for menu options
         public ICommand ShowLoginViewCommand { get; }
         public ICommand ShowRegisterViewCommand { get; }
-        public ICommand ShowDeliveriesViewCommand { get; }
+		public ICommand ShowRegisterDeliveryViewCommand { get; }
+		public ICommand ShowDeliveriesViewCommand { get; }
         public ICommand ShowRolesViewCommand { get; }
         public ICommand ShowUsersViewCommand { get; }
         public ICommand LogoutCommand { get; }
@@ -47,7 +48,8 @@ namespace DeliveryApp.ViewModels
             // Commands initialization for menu options
             ShowLoginViewCommand = new BaseCommand(o => CurrentViewModel = new LoginViewModel(authorizationService));
             ShowRegisterViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterViewModel(authorizationService));
-            ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel());
+			ShowRegisterDeliveryViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterDeliveryViewModel(deliveryService));
+			ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel());
             ShowRolesViewCommand = new BaseCommand(o => CurrentViewModel = new RoleListingViewModel());
             ShowUsersViewCommand = new BaseCommand(o => CurrentViewModel = new UserListingViewModel());
             LogoutCommand = new BaseCommand(o => _authorizationService.logout());
@@ -72,6 +74,7 @@ namespace DeliveryApp.ViewModels
             if (IsLogged)
             {
                 ShowDeliveriesViewCommand.Execute(null);
+
             }
             else
             {

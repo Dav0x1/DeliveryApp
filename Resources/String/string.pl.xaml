@@ -6,6 +6,7 @@
     <System:String x:Key="MenuItemHeader1">Logowanie</System:String>
     <System:String x:Key="MenuItemHeader2">Rejestracja</System:String>
     <System:String x:Key="MenuItemHeader3">Dostawy</System:String>
+    <System:String x:Key="MenuItemHeader3-add">Dodaj dostawę</System:String>
     <System:String x:Key="MenuItemHeader4">Role</System:String>
     <System:String x:Key="MenuItemHeader5">Uzytkownicy</System:String>
     <System:String x:Key="MenuItemHeader6">Jezyk</System:String>
@@ -13,11 +14,23 @@
     <System:String x:Key="MenuItemHeader6Submenu2">Angielski</System:String>
     <System:String x:Key="MenuItemHeader7">Wyloguj</System:String> 
     
+    
     <System:String x:Key="Login">Nazwa użytkownika:</System:String>
     <System:String x:Key="Password">Hasło:</System:String>
     <System:String x:Key="ConfirmPassword">Powtórz hasło:</System:String>
     <System:String x:Key="ShowPassword">Pokaż hasło</System:String>
     <System:String x:Key="LogIn">Zaloguj się</System:String>
     <System:String x:Key="Register">Zarejestruj się</System:String>
+
     
+    <System:String x:Key="FormTitle">Formularz dodawania przesyłki</System:String>
+    <System:String x:Key="SenderAddress">Adres nadawcy:</System:String>
+    <System:String x:Key="ReceiverAddress">Adres odbiorcy:</System:String>
+    <System:String x:Key="DeliveryType">Rodzaj dostawy:</System:String>
+    <System:String x:Key="Weight">Waga (kg):</System:String>
+    <System:String x:Key="Width">Szerokość (cm):</System:String>
+    <System:String x:Key="Length">Długość (cm):</System:String>
+    <System:String x:Key="Height">Wysokość (cm):</System:String>
+    <System:String x:Key="RegisterDelivery">Zarejestruj przesyłkę</System:String>
+
 </ResourceDictionary>

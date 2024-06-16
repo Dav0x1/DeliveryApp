@@ -7,6 +7,55 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Formularz gdzie mozemy dodac przesylke" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Title TextBlock -->
+        <TextBlock Text="{StaticResource FormTitle}" Grid.ColumnSpan="2" Margin="10" Style="{StaticResource TitleTextBlockStyle}"/>
+
+        <!-- Sender Address -->
+        <Label Content="{StaticResource SenderAddress}" Grid.Row="1" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="10" Text="{Binding SenderAddress}" Style="{StaticResource WhiteTextBoxStyle}"/>
+
+        <!-- Receiver Address -->
+        <Label Content="{StaticResource ReceiverAddress}" Grid.Row="2" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="10" Text="{Binding ReceiverAddress}" Style="{StaticResource WhiteTextBoxStyle}"/>
+
+        <!-- Delivery Type -->
+        <Label Content="{StaticResource DeliveryType}" Grid.Row="3" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="10" Text="{Binding DeliveryType}" Style="{StaticResource WhiteTextBoxStyle}"/>
+
+        <!-- Weight -->
+        <Label Content="{StaticResource Weight}" Grid.Row="4" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="10" Text="{Binding Weight}" Style="{StaticResource WhiteTextBoxStyle}"/>
+
+        <!-- Width -->
+        <Label Content="{StaticResource Width}" Grid.Row="5" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="10" Text="{Binding Width}" Style="{StaticResource WhiteTextBoxStyle}"/>
+
+        <!-- Length -->
+        <Label Content="{StaticResource Length}" Grid.Row="6" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="10" Text="{Binding Length}" Style="{StaticResource WhiteTextBoxStyle}"/>
+
+        <!-- Height -->
+        <Label Content="{StaticResource Height}" Grid.Row="7" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="10" Text="{Binding Height}" Style="{StaticResource WhiteTextBoxStyle}"/>
+
+        <!-- Register Button -->
+        <Button Content="{StaticResource RegisterDelivery}" Grid.Row="8" Grid.ColumnSpan="2" Margin="10" Command="{Binding RegisterDeliveryCommand}" Style="{StaticResource WhiteButtonStyle}"/>
+        
     </Grid>
 </UserControl>

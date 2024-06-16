@@ -15,7 +15,7 @@ namespace DeliveryApp.Models
         public string DeliveryType { get; set; }
         public float Weight { get; set; }
         public float Width { get; set; }
-        public float Lenght { get; set; }
+        public float Length { get; set; }
         public float Height { get; set; }
         public DateTime RegistrationDate { get; set; }
 
