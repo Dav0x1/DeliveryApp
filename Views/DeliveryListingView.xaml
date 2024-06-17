@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:DeliveryApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -29,10 +30,10 @@
         <TextBlock Text="status" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="4"/>
 
 
-        <ListView ItemsSource="{Binding Deliveries}" Grid.Row="2" Grid.ColumnSpan="6" Background="#25272A" HorizontalContentAlignment="Stretch">
+        <ListView ItemsSource="{Binding Deliveries}" Grid.Row="2" Grid.ColumnSpan="6" Background="#25272A" HorizontalContentAlignment="Stretch" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Background="#3D4045"  Grid.ColumnSpan="5">
+                    <StackPanel Background="#3D4045"  Grid.ColumnSpan="6">
                         <Grid Grid.ColumnSpan="6">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -47,7 +48,26 @@
                             <TextBlock Text="{Binding DeliveryType}" Style="{StaticResource TextBlockStyle}" Grid.Column="2" />
                             <TextBlock Text="{Binding Weight, StringFormat={}{0} kg}" Style="{StaticResource TextBlockStyle}" Grid.Column="3" />
                             <TextBlock Text="{Binding CurrentStatus}" Style="{StaticResource TextBlockStyle}" Grid.Column="4"/>
-                            <Button Content="{DynamicResource ChangeStatus}" Style="{StaticResource WhiteButtonStyle}"   Grid.Column="5" Margin="5"/>
+                            <ToggleButton x:Name="StatusToggleButton"
+                                          Content="Change Status"
+                                          
+                                          Grid.Column="5"
+                                          Margin="5"/>
+
+                            <Popup Name="StatusPopup"
+                                   DataContext="{Binding DataContext.SelectedDelivery, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                   PlacementTarget="{Binding ElementName=StatusToggleButton}"
+                                   IsOpen="{Binding IsChecked, ElementName=StatusToggleButton}"
+                                   StaysOpen="False">   
+                                <Border Background="White" BorderBrush="Black" BorderThickness="1">
+                                    <ListBox ItemsSource="{Binding DataContext.AvailableStatuses, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                             SelectedItem="{Binding DataContext.SelectedStatus, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                             DisplayMemberPath="Name"
+                                             SelectedValuePath="Value"
+                                             SelectionChanged="StatusListBox_SelectionChanged"/>
+                                </Border>
+                            </Popup>    
+
                         </Grid>
                         <Expander Header="{DynamicResource Details}" Background="#3D4045" Foreground="White"  Grid.ColumnSpan="6">
                             <StackPanel Grid.ColumnSpan="6">
