@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:System="clr-namespace:System;assembly=System.Runtime">
     
+    <!-- Menu -->
     <System:String x:Key="MenuTitle">Delivery App</System:String>
     <System:String x:Key="MenuItemHeader1">Login</System:String>
     <System:String x:Key="MenuItemHeader2">Register</System:String>
@@ -13,8 +14,8 @@
     <System:String x:Key="MenuItemHeader6Submenu1">Polish</System:String>
     <System:String x:Key="MenuItemHeader6Submenu2">English</System:String>
     <System:String x:Key="MenuItemHeader7">Logout</System:String>
-    
-    
+
+    <!-- Register and login-->
     <System:String x:Key="Login">Login:</System:String>
     <System:String x:Key="Password">Password:</System:String>
     <System:String x:Key="ConfirmPassword">Confirm Password:</System:String>
@@ -22,21 +23,27 @@
     <System:String x:Key="LogIn">Log In</System:String>
     <System:String x:Key="Register">Sign Up</System:String>
 
-
+    <!-- Form to add delivery-->
     <System:String x:Key="FormTitle">Form to add a delivery</System:String>
     <System:String x:Key="SenderAddress">Sender Address:</System:String>
     <System:String x:Key="ReceiverAddress">Receiver Address:</System:String>
     <System:String x:Key="DeliveryType">Delivery Type:</System:String>
-    <System:String x:Key="WeightKG">Weight (kg):</System:String>
-    <System:String x:Key="Weight">Weight:</System:String>
+    <System:String x:Key="Weight">Weight (kg):</System:String>
     <System:String x:Key="Width">Width (cm):</System:String>
     <System:String x:Key="Length">Length (cm):</System:String>
     <System:String x:Key="Height">Height (cm):</System:String>
     <System:String x:Key="RegisterDelivery">Register Delivery</System:String>
 
-    <System:String x:Key="Title1">All delivery</System:String>
+    <!-- Delivery listing View-->
+    <System:String x:Key="DeliveryListingTitle">All delivery</System:String>
+    <System:String x:Key="DeliveryListingSenderAddress">Sender Address</System:String>
+    <System:String x:Key="DeliveryListingReceiverAddress">Receiver Address</System:String>
+    <System:String x:Key="DeliveryListingDeliveryType">Delivery Type</System:String>
+    <System:String x:Key="DeliveryListingWeight">Weight</System:String>
+    <System:String x:Key="DeliveryListingStatus">Current Status</System:String>
     <System:String x:Key="Details">Details</System:String>
-    <System:String x:Key="ChangeStatus">Change status</System:String>
+    <System:String x:Key="ChangeStatus">Change Status</System:String>
+
 
     <!-- Role listing View-->
     <System:String x:Key="RoleListingTitle">All Roles</System:String>

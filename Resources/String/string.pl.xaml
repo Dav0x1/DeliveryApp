@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:System="clr-namespace:System;assembly=System.Runtime">
-    
+
+    <!-- Menu -->
     <System:String x:Key="MenuTitle">Delivery App</System:String>
     <System:String x:Key="MenuItemHeader1">Logowanie</System:String>
     <System:String x:Key="MenuItemHeader2">Rejestracja</System:String>
@@ -12,9 +13,9 @@
     <System:String x:Key="MenuItemHeader6">Jezyk</System:String>
     <System:String x:Key="MenuItemHeader6Submenu1">Polski</System:String>
     <System:String x:Key="MenuItemHeader6Submenu2">Angielski</System:String>
-    <System:String x:Key="MenuItemHeader7">Wyloguj</System:String> 
-    
-    
+    <System:String x:Key="MenuItemHeader7">Wyloguj</System:String>
+
+    <!-- Register and login -->
     <System:String x:Key="Login">Nazwa użytkownika:</System:String>
     <System:String x:Key="Password">Hasło:</System:String>
     <System:String x:Key="ConfirmPassword">Powtórz hasło:</System:String>
@@ -22,19 +23,24 @@
     <System:String x:Key="LogIn">Zaloguj się</System:String>
     <System:String x:Key="Register">Zarejestruj się</System:String>
 
-    
+    <!-- Form to add delivery-->
     <System:String x:Key="FormTitle">Formularz dodawania przesyłki</System:String>
     <System:String x:Key="SenderAddress">Adres nadawcy:</System:String>
     <System:String x:Key="ReceiverAddress">Adres odbiorcy:</System:String>
     <System:String x:Key="DeliveryType">Rodzaj dostawy:</System:String>
-    <System:String x:Key="WeightKG">Waga (kg):</System:String>
-    <System:String x:Key="Weight">Waga:</System:String>
+    <System:String x:Key="Weight">Waga (kg):</System:String>
     <System:String x:Key="Width">Szerokość (cm):</System:String>
     <System:String x:Key="Length">Długość (cm):</System:String>
     <System:String x:Key="Height">Wysokość (cm):</System:String>
     <System:String x:Key="RegisterDelivery">Zarejestruj przesyłkę</System:String>
 
-    <System:String x:Key="Title1">Lista wszystkich przesyłek</System:String>
+    <!-- Delivery listing View-->
+    <System:String x:Key="DeliveryListingTitle">Lista wszystkich przesyłek</System:String>
+    <System:String x:Key="DeliveryListingSenderAddress">Adres nadawcy</System:String>
+    <System:String x:Key="DeliveryListingReceiverAddress">Adres odbiorcy</System:String>
+    <System:String x:Key="DeliveryListingDeliveryType">Rodzaj dostawy</System:String>
+    <System:String x:Key="DeliveryListingWeight">Waga</System:String>
+    <System:String x:Key="DeliveryListingStatus">Obecny Status</System:String>
     <System:String x:Key="Details">Szczegóły</System:String>
     <System:String x:Key="ChangeStatus">Zmień status</System:String>
     

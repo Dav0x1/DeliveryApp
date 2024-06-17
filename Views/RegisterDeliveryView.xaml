@@ -39,7 +39,7 @@
         <TextBox Grid.Row="3" Grid.Column="1" Margin="10" Text="{Binding DeliveryType, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource WhiteTextBoxStyle}"/>
 
         <!-- Weight -->
-        <Label Content="{DynamicResource WeightKG}" Grid.Row="4" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
+        <Label Content="{DynamicResource Weight}" Grid.Row="4" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
         <TextBox Grid.Row="4" Grid.Column="1" Margin="10" Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource WhiteTextBoxStyle}"/>
 
         <!-- Width -->

@@ -22,12 +22,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="{DynamicResource Title1}" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="5"/>
-        <TextBlock Text="{DynamicResource SenderAddress}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1"/>
-        <TextBlock Text="{DynamicResource ReceiverAddress}" Style="{StaticResource HeadersTextBlockStyle}"  Grid.Row="1" Grid.Column="1"/>
-        <TextBlock Text="{DynamicResource DeliveryType}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="2"/>
-        <TextBlock Text="{DynamicResource Weight}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="3"/>
-        <TextBlock Text="status" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="4"/>
+        <TextBlock Text="{DynamicResource DeliveryListingTitle}" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="5"/>
+        <TextBlock Text="{DynamicResource DeliveryListingSenderAddress}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1"/>
+        <TextBlock Text="{DynamicResource DeliveryListingReceiverAddress}" Style="{StaticResource HeadersTextBlockStyle}"  Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Text="{DynamicResource DeliveryListingDeliveryType}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="2"/>
+        <TextBlock Text="{DynamicResource DeliveryListingWeight}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="3"/>
+        <TextBlock Text="{DynamicResource DeliveryListingStatus}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="4"/>
 
 
         <ListView ItemsSource="{Binding Deliveries}" Grid.Row="2" Grid.ColumnSpan="6" Background="#25272A" HorizontalContentAlignment="Stretch" SelectionChanged="ListView_SelectionChanged">
@@ -48,22 +48,23 @@
                             <TextBlock Text="{Binding Delivery.DeliveryType}" Style="{StaticResource TextBlockStyle}" Grid.Column="2" />
                             <TextBlock Text="{Binding Delivery.Weight, StringFormat={}{0} kg}" Style="{StaticResource TextBlockStyle}" Grid.Column="3" />
                             <TextBlock Text="{Binding CurrentStatus}" Style="{StaticResource TextBlockStyle}" Grid.Column="4"/>
-                           
 
-                            <ToggleButton x:Name="StatusToggleButton"
-                                          Content="Change Status"
+
+                            <ToggleButton Name="StatusToggleButton"
+                                          Content="{DynamicResource ChangeStatus}"
                                           Grid.Column="5"
-                                          Margin="5"/>
+                                          Style="{StaticResource StatusToggleButtonStyle}"/>
 
                             <Popup Name="StatusPopup"
                                    DataContext="{Binding}"
                                    PlacementTarget="{Binding ElementName=StatusToggleButton}"
                                    IsOpen="{Binding IsChecked, ElementName=StatusToggleButton}"
                                    StaysOpen="False">
-                                <Border Background="White" BorderBrush="Black" BorderThickness="1">
+                                <Border Style="{StaticResource ListBoxBorderStyle}">
                                     <ListBox ItemsSource="{Binding AvailableStatuses}"
                                              SelectedItem="{Binding CurrentStatus}"
-                                             SelectionChanged="StatusListBox_SelectionChanged"/>
+                                             SelectionChanged="StatusListBox_SelectionChanged"
+                                             Style="{StaticResource ListBoxStyle}"/>
                                 </Border>
                             </Popup>
 
