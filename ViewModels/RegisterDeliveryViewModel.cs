@@ -79,9 +79,9 @@ namespace DeliveryApp.ViewModels
 
 		private void RegisterDelivery()
 		{
-			if (HasErrors)
+			if (HasErrors || !AllFieldsFilled)
 			{
-				MessageBox.Show("Please correct the errors in the form.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageBox.Show("Please correct the errors in the form and fill all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 				return;
 			}
 
@@ -122,6 +122,19 @@ namespace DeliveryApp.ViewModels
 					.Any(prop => this[prop.Name] != null);
 			}
 		}
+		public bool AllFieldsFilled
+		{
+			get
+			{
+				return !string.IsNullOrWhiteSpace(SenderAddress) &&
+					   !string.IsNullOrWhiteSpace(ReceiverAddress) &&
+					   !string.IsNullOrWhiteSpace(DeliveryType) &&
+					   Weight > 0 &&
+					   Width > 0 &&
+					   Length > 0 &&
+					   Height > 0;
+			}
+		}
 		public string this[string columnName]
 		{
 			get
@@ -129,19 +142,52 @@ namespace DeliveryApp.ViewModels
 				string result = null;
 				switch (columnName)
 				{
-					case nameof(Weight):
-					case nameof(Width):
-					case nameof(Length):
-					case nameof(Height):
-						if (GetType().GetProperty(columnName).GetValue(this) is float value && value < 0)
+					case nameof(SenderAddress):
+						if (string.IsNullOrWhiteSpace(SenderAddress))
 						{
-							result = $"{columnName} cannot be negative.";
+							result = $"{nameof(SenderAddress)} cannot be empty.";
+						}
+						break;
+					case nameof(ReceiverAddress):
+						if (string.IsNullOrWhiteSpace(ReceiverAddress))
+						{
+							result = $"{nameof(ReceiverAddress)} cannot be empty.";
+						}
+						break;
+					case nameof(DeliveryType):
+						if (string.IsNullOrWhiteSpace(DeliveryType))
+						{
+							result = $"{nameof(DeliveryType)} cannot be empty.";
+						}
+						break;
+					case nameof(Weight):
+						if (Weight <= 0)
+						{
+							result = $"{nameof(Weight)} must be greater than zero.";
+						}
+						break;
+					case nameof(Width):
+						if (Width <= 0)
+						{
+							result = $"{nameof(Width)} must be greater than zero.";
+						}
+						break;
+					case nameof(Length):
+						if (Length <= 0)
+						{
+							result = $"{nameof(Length)} must be greater than zero.";
+						}
+						break;
+					case nameof(Height):
+						if (Height <= 0)
+						{
+							result = $"{nameof(Height)} must be greater than zero.";
 						}
 						break;
 				}
 				return result;
 			}
-		}
 
+		}
 	}
 }

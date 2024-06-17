@@ -28,15 +28,15 @@
 
         <!-- Sender Address -->
         <Label Content="{DynamicResource SenderAddress}" Grid.Row="1" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="10" Text="{Binding SenderAddress}" Style="{StaticResource WhiteTextBoxStyle}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="10" Text="{Binding SenderAddress, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource WhiteTextBoxStyle}"/>
 
         <!-- Receiver Address -->
         <Label Content="{DynamicResource ReceiverAddress}" Grid.Row="2" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="10" Text="{Binding ReceiverAddress}" Style="{StaticResource WhiteTextBoxStyle}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="10" Text="{Binding ReceiverAddress, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource WhiteTextBoxStyle}"/>
 
         <!-- Delivery Type -->
         <Label Content="{DynamicResource DeliveryType}" Grid.Row="3" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="10" Text="{Binding DeliveryType}" Style="{StaticResource WhiteTextBoxStyle}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="10" Text="{Binding DeliveryType, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource WhiteTextBoxStyle}"/>
 
         <!-- Weight -->
         <Label Content="{DynamicResource WeightKG}" Grid.Row="4" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
