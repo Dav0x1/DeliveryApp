@@ -19,7 +19,7 @@ namespace DeliveryApp.Services
 
         public List<User> GetUsers()
         {
-            return _dbContext.Users.ToList();
+            return _dbContext.Users.Include(r => r.Role).ToList();
         }
 
         public List<Role> GetRoles()

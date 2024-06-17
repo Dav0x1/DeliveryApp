@@ -7,6 +7,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="{DynamicResource UserListingTitle}" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="5"/>
+        <TextBlock Text="{DynamicResource UserListingHeader1}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1"/>
+        <TextBlock Text="{DynamicResource UserListingHeader2}" Style="{StaticResource HeadersTextBlockStyle}"  Grid.Row="1" Grid.Column="1"/>
+
+        <ListView ItemsSource="{Binding Users}" Grid.Row="2" Grid.ColumnSpan="5" Background="#25272A" HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Background="#3D4045"  Grid.ColumnSpan="5">
+                        <Grid Grid.ColumnSpan="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Username}" Style="{StaticResource TextBlockStyle}"/>
+                            <TextBlock Text="{Binding Role.Name}" Style="{StaticResource TextBlockStyle}" Grid.Column="1" />
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

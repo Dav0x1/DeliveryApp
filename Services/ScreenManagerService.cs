@@ -34,7 +34,7 @@ namespace DeliveryApp.Services
         public ICommand ShowUsersViewCommand { get; }
         public ICommand LogoutCommand { get; }
 
-        public ScreenManagerService(AuthorizationService authorizationService, DeliveryService deliveryService, RoleSerivce roleService)
+        public ScreenManagerService(AuthorizationService authorizationService, DeliveryService deliveryService, RoleSerivce roleService,DataService dataService)
         {
             // Commands initialization for menu options
             ShowLoginViewCommand = new BaseCommand(o => CurrentViewModel = new LoginViewModel(authorizationService));
@@ -43,7 +43,7 @@ namespace DeliveryApp.Services
             ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel(deliveryService));
             ShowRolesViewCommand = new BaseCommand(o => CurrentViewModel = new RoleListingViewModel(roleService,this));
             AddRoleViewCommand = new BaseCommand(o => CurrentViewModel = new AddRoleViewModel(roleService,this));
-            ShowUsersViewCommand = new BaseCommand(o => CurrentViewModel = new UserListingViewModel());
+            ShowUsersViewCommand = new BaseCommand(o => CurrentViewModel = new UserListingViewModel(dataService));
             LogoutCommand = new BaseCommand(o => { ShowLoginViewCommand.Execute(null); authorizationService.logout(); });
 
             // Set initial view model

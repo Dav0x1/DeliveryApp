@@ -49,7 +49,11 @@
     <System:String x:Key="RoleListingHeader6">Dodaj rolę</System:String>
     <System:String x:Key="RoleListingHeader7">Wyświetl użytkowników</System:String>
     <System:String x:Key="RoleListingHeader8">Modyfikuj użytkownika</System:String>
-
+    <!-- Role listing View-->
+    <System:String x:Key="UserListingTitle">Użytkownicy</System:String>
+    <System:String x:Key="UserListingHeader1">Nazwa uzytkownika</System:String>
+    <System:String x:Key="UserListingHeader2">Rola</System:String>
+    
     <System:String x:Key="RoleNameLabel">Nazwa roli:</System:String>
     <System:String x:Key="CanDisplayDeliveriesCheckbox">Może wyświetlać dostawy</System:String>
     <System:String x:Key="CanRegisterDeliveryCheckbox">Może rejestrować dostawę</System:String>
