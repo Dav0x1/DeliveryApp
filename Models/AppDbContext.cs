@@ -32,7 +32,11 @@ namespace DeliveryApp.Models
                 .HasForeignKey(s => s.DeliveryId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<DeliveryStatusUpdate>()
+			modelBuilder.Entity<Delivery>()
+		        .Property(d => d.CurrentStatus)
+		        .HasColumnName("CurrentStatus");
+
+			modelBuilder.Entity<DeliveryStatusUpdate>()
                 .HasOne(dsu => dsu.Delivery)
                 .WithMany(d => d.StatusHistory)
                 .HasForeignKey(dsu => dsu.DeliveryId)

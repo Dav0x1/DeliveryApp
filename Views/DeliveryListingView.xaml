@@ -18,6 +18,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="{DynamicResource Title1}" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="5"/>
@@ -25,14 +26,16 @@
         <TextBlock Text="{DynamicResource ReceiverAddress}" Style="{StaticResource HeadersTextBlockStyle}"  Grid.Row="1" Grid.Column="1"/>
         <TextBlock Text="{DynamicResource DeliveryType}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="2"/>
         <TextBlock Text="{DynamicResource Weight}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="3"/>
+        <TextBlock Text="status" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="4"/>
 
 
-        <ListView ItemsSource="{Binding Deliveries}" Grid.Row="2" Grid.ColumnSpan="5" Background="#25272A" HorizontalContentAlignment="Stretch">
+        <ListView ItemsSource="{Binding Deliveries}" Grid.Row="2" Grid.ColumnSpan="6" Background="#25272A" HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Background="#3D4045"  Grid.ColumnSpan="5">
-                        <Grid Grid.ColumnSpan="5">
+                        <Grid Grid.ColumnSpan="6">
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
@@ -43,10 +46,11 @@
                             <TextBlock Text="{Binding ReceiverAddress}" Style="{StaticResource TextBlockStyle}" Grid.Column="1" />
                             <TextBlock Text="{Binding DeliveryType}" Style="{StaticResource TextBlockStyle}" Grid.Column="2" />
                             <TextBlock Text="{Binding Weight, StringFormat={}{0} kg}" Style="{StaticResource TextBlockStyle}" Grid.Column="3" />
-                            <Button Content="{DynamicResource ChangeStatus}" Style="{StaticResource WhiteButtonStyle}"   Grid.Column="4" Margin="5"/>
+                            <TextBlock Text="{Binding CurrentStatus}" Style="{StaticResource TextBlockStyle}" Grid.Column="4"/>
+                            <Button Content="{DynamicResource ChangeStatus}" Style="{StaticResource WhiteButtonStyle}"   Grid.Column="5" Margin="5"/>
                         </Grid>
-                        <Expander Header="{DynamicResource Details}" Background="#3D4045" Foreground="White"  Grid.ColumnSpan="5">
-                            <StackPanel Grid.ColumnSpan="5">
+                        <Expander Header="{DynamicResource Details}" Background="#3D4045" Foreground="White"  Grid.ColumnSpan="6">
+                            <StackPanel Grid.ColumnSpan="6">
                                 <TextBlock Text="{Binding Width, StringFormat= 'Szerokość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
                                 <TextBlock Text="{Binding Length, StringFormat='Długość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
                                 <TextBlock Text="{Binding Height, StringFormat='Wysokość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>

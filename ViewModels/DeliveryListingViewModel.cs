@@ -25,6 +25,10 @@ namespace DeliveryApp.ViewModels
 		{
 			List<Delivery> deliveries = _deliveryService.get();
 			Deliveries = new ObservableCollection<Delivery>(deliveries);
+			foreach (var delivery in Deliveries)
+			{
+				delivery.CurrentStatus = _deliveryService.GetCurrentStatus(delivery.Id);
+			}
 		}
 	}
 }

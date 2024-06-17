@@ -19,6 +19,8 @@ namespace DeliveryApp.Models
         public float Height { get; set; }
         public DateTime RegistrationDate { get; set; }
 
-        public virtual ICollection<DeliveryStatusUpdate> StatusHistory { get; set; } = new List<DeliveryStatusUpdate>();
+		public int CurrentStatus { get; set; }
+
+		public virtual ICollection<DeliveryStatusUpdate> StatusHistory { get; set; } = new List<DeliveryStatusUpdate>();
     }
 }
