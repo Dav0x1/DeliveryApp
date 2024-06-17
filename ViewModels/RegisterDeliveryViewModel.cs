@@ -3,17 +3,20 @@ using DeliveryApp.Models;
 using DeliveryApp.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Media3D;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace DeliveryApp.ViewModels
 {
-    public class RegisterDeliveryViewModel : ViewModelBase
-    {
+	public class RegisterDeliveryViewModel : ViewModelBase, IDataErrorInfo
+	{
 		private readonly DeliveryService _deliveryService;
 
 		public ICommand RegisterDeliveryCommand { get; }
@@ -76,6 +79,12 @@ namespace DeliveryApp.ViewModels
 
 		private void RegisterDelivery()
 		{
+			if (HasErrors)
+			{
+				MessageBox.Show("Please correct the errors in the form.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				return;
+			}
+
 			Delivery newDelivery = new Delivery
 			{
 				SenderAddress = _senderAddress,
@@ -100,7 +109,39 @@ namespace DeliveryApp.ViewModels
 			Width = 0;
 			Length = 0;
 			Height = 0;
-
 		}
+
+		public string Error => null;
+
+		public bool HasErrors
+		{
+			get
+			{
+				return typeof(RegisterDeliveryViewModel)
+					.GetProperties()
+					.Any(prop => this[prop.Name] != null);
+			}
+		}
+		public string this[string columnName]
+		{
+			get
+			{
+				string result = null;
+				switch (columnName)
+				{
+					case nameof(Weight):
+					case nameof(Width):
+					case nameof(Length):
+					case nameof(Height):
+						if (GetType().GetProperty(columnName).GetValue(this) is float value && value < 0)
+						{
+							result = $"{columnName} cannot be negative.";
+						}
+						break;
+				}
+				return result;
+			}
+		}
+
 	}
 }

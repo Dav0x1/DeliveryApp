@@ -40,19 +40,19 @@
 
         <!-- Weight -->
         <Label Content="{DynamicResource WeightKG}" Grid.Row="4" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Margin="10" Text="{Binding Weight}" Style="{StaticResource WhiteTextBoxStyle}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="10" Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource WhiteTextBoxStyle}"/>
 
         <!-- Width -->
         <Label Content="{DynamicResource Width}" Grid.Row="5" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
-        <TextBox Grid.Row="5" Grid.Column="1" Margin="10" Text="{Binding Width}" Style="{StaticResource WhiteTextBoxStyle}"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="10" Text="{Binding Width, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource WhiteTextBoxStyle}"/>
 
         <!-- Length -->
         <Label Content="{DynamicResource Length}" Grid.Row="6" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
-        <TextBox Grid.Row="6" Grid.Column="1" Margin="10" Text="{Binding Length}" Style="{StaticResource WhiteTextBoxStyle}"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="10" Text="{Binding Length, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource WhiteTextBoxStyle}"/>
 
         <!-- Height -->
         <Label Content="{DynamicResource Height}" Grid.Row="7" VerticalAlignment="Center" Margin="10" Style="{StaticResource WhiteTextLabelStyle}"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Margin="10" Text="{Binding Height}" Style="{StaticResource WhiteTextBoxStyle}"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="10" Text="{Binding Height, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource WhiteTextBoxStyle}"/>
 
         <!-- Register Button -->
         <Button Content="{DynamicResource RegisterDelivery}" Grid.Row="8" Grid.ColumnSpan="2" Margin="10" Command="{Binding RegisterDeliveryCommand}" Style="{StaticResource WhiteButtonStyle}"/>
