@@ -18,22 +18,25 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="{DynamicResource UserListingTitle}" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="5"/>
-        <TextBlock Text="{DynamicResource UserListingHeader1}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1"/>
-        <TextBlock Text="{DynamicResource UserListingHeader2}" Style="{StaticResource HeadersTextBlockStyle}"  Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Text="{DynamicResource UserListingTitle}" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="3"/>
 
-        <ListView ItemsSource="{Binding Users}" Grid.Row="2" Grid.ColumnSpan="5" Background="#25272A" HorizontalContentAlignment="Stretch">
+        <TextBlock Text="{DynamicResource UserListingHeader1}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1"/>
+        <TextBlock Text="{DynamicResource UserListingHeader2}" Style="{StaticResource HeadersTextBlockStyle}" Grid.Row="1" Grid.Column="1"/>
+
+        <ListView ItemsSource="{Binding Users}" Grid.Row="2" Grid.ColumnSpan="3" Background="#25272A" HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Background="#3D4045"  Grid.ColumnSpan="5">
-                        <Grid Grid.ColumnSpan="5">
+                    <StackPanel Background="#3D4045">
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding Username}" Style="{StaticResource TextBlockStyle}"/>
-                            <TextBlock Text="{Binding Role.Name}" Style="{StaticResource TextBlockStyle}" Grid.Column="1" />
+                            <ComboBox ItemsSource="{Binding DataContext.Roles, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
+                                  DisplayMemberPath="Name" SelectedItem="{Binding Role}"
+                                  Grid.Column="1" Margin="10"/>
                         </Grid>
                     </StackPanel>
                 </DataTemplate>
