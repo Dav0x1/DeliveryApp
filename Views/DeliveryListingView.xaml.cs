@@ -30,32 +30,30 @@ namespace DeliveryApp.Views
 		public DeliveryListingView()
         {
             InitializeComponent();
+
 		}
-	
+
 		private void StatusListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			if (sender is ListBox listBox && listBox.SelectedItem is DeliveryStatus selectedStatus)
 			{
-				if (DataContext is ViewModels.DeliveryListingViewModel viewModel && viewModel.SelectedStatus != null)
+				if (listBox.DataContext is DeliveryViewModel deliveryViewModel)
 				{
-					viewModel.SelectedStatus = selectedStatus;
-					viewModel.ChangeStatusCommand.Execute(null); // zmiany statusu
+					deliveryViewModel.CurrentStatus = selectedStatus;
 				}
-				if (StatusPopup != null)
+
+				if (listBox.Parent is Border border && border.Parent is Popup popup)
 				{
-					StatusPopup.IsOpen = false; // W teorii powinien się zamknąć po wybraniu statusu
+					popup.IsOpen = false;
 				}
 			}
 		}
 
 		private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (sender is ListView listView && listView.SelectedItem is Delivery selectedDelivery)
+			if (sender is ListView listView && listView.SelectedItem is DeliveryViewModel selectedDelivery)
 			{
-				if (DataContext is DeliveryListingViewModel viewModel)
-				{
-					viewModel.SelectedDelivery = selectedDelivery;
-				}
+				// No need to do anything here as each item already has its own DataContext
 			}
 		}
 

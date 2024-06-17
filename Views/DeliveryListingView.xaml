@@ -43,38 +43,37 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding SenderAddress}" Style="{StaticResource TextBlockStyle}"/>
-                            <TextBlock Text="{Binding ReceiverAddress}" Style="{StaticResource TextBlockStyle}" Grid.Column="1" />
-                            <TextBlock Text="{Binding DeliveryType}" Style="{StaticResource TextBlockStyle}" Grid.Column="2" />
-                            <TextBlock Text="{Binding Weight, StringFormat={}{0} kg}" Style="{StaticResource TextBlockStyle}" Grid.Column="3" />
+                            <TextBlock Text="{Binding Delivery.SenderAddress}" Style="{StaticResource TextBlockStyle}"/>
+                            <TextBlock Text="{Binding Delivery.ReceiverAddress}" Style="{StaticResource TextBlockStyle}" Grid.Column="1" />
+                            <TextBlock Text="{Binding Delivery.DeliveryType}" Style="{StaticResource TextBlockStyle}" Grid.Column="2" />
+                            <TextBlock Text="{Binding Delivery.Weight, StringFormat={}{0} kg}" Style="{StaticResource TextBlockStyle}" Grid.Column="3" />
                             <TextBlock Text="{Binding CurrentStatus}" Style="{StaticResource TextBlockStyle}" Grid.Column="4"/>
+                           
+
                             <ToggleButton x:Name="StatusToggleButton"
                                           Content="Change Status"
-                                          
                                           Grid.Column="5"
                                           Margin="5"/>
 
                             <Popup Name="StatusPopup"
-                                   DataContext="{Binding DataContext.SelectedDelivery, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                   DataContext="{Binding}"
                                    PlacementTarget="{Binding ElementName=StatusToggleButton}"
                                    IsOpen="{Binding IsChecked, ElementName=StatusToggleButton}"
-                                   StaysOpen="False">   
+                                   StaysOpen="False">
                                 <Border Background="White" BorderBrush="Black" BorderThickness="1">
-                                    <ListBox ItemsSource="{Binding DataContext.AvailableStatuses, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                             SelectedItem="{Binding DataContext.SelectedStatus, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                             DisplayMemberPath="Name"
-                                             SelectedValuePath="Value"
+                                    <ListBox ItemsSource="{Binding AvailableStatuses}"
+                                             SelectedItem="{Binding CurrentStatus}"
                                              SelectionChanged="StatusListBox_SelectionChanged"/>
                                 </Border>
-                            </Popup>    
+                            </Popup>
 
                         </Grid>
                         <Expander Header="{DynamicResource Details}" Background="#3D4045" Foreground="White"  Grid.ColumnSpan="6">
                             <StackPanel Grid.ColumnSpan="6">
-                                <TextBlock Text="{Binding Width, StringFormat= 'Szerokość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
-                                <TextBlock Text="{Binding Length, StringFormat='Długość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
-                                <TextBlock Text="{Binding Height, StringFormat='Wysokość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
-                                <TextBlock Text="{Binding RegistrationDate, StringFormat='Data rejestracji: {0:dd/MM/yyyy HH:mm}'}" Style="{StaticResource TextBlockStyle}"/>
+                                <TextBlock Text="{Binding Delivery.Width, StringFormat= 'Szerokość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
+                                <TextBlock Text="{Binding Delivery.Length, StringFormat='Długość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
+                                <TextBlock Text="{Binding Delivery.Height, StringFormat='Wysokość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
+                                <TextBlock Text="{Binding Delivery.RegistrationDate, StringFormat='Data rejestracji: {0:dd/MM/yyyy HH:mm}'}" Style="{StaticResource TextBlockStyle}"/>
                             </StackPanel>
                         </Expander>
                     </StackPanel>
