@@ -108,5 +108,10 @@ namespace DeliveryApp.Services
                 return false;
             }
         }
+
+        public void saveChange()
+        {
+            _dbContext.SaveChanges(true);
+        }
     }
 }

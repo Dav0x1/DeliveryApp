@@ -63,6 +63,7 @@ namespace DeliveryApp.Services
         {
             isLogged = false;
             loggedUser = null;
+            _dataService.saveChange();
             OnLoginStatusChanged();
         }
 
