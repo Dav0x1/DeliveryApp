@@ -57,6 +57,7 @@
         <Setter Property="Background" Value="#3D4045"/>
         <Setter Property="Margin" Value="10 10 20 10"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Padding" Value="5"/>
     </Style>
 
     <!-- CheckBox Style -->
