@@ -10,30 +10,41 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Wiersz dla przycisku "Add Role" -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <!-- Reszta przestrzeni dla ListView -->
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <!-- Przycisk "Add Role" -->
-        <Button Content="Add Role"
+        <TextBlock Text="{DynamicResource RoleListingTitle}" Style="{StaticResource TitleTextBlockStyle}" Grid.ColumnSpan="5"/>
+
+        <Button Content="{DynamicResource RoleListingButton}"
             Command="{Binding AddRoleViewCommand}"
             Margin="10"
-            Grid.Row="0" />
-
+            Grid.Row="1" 
+            Style="{StaticResource WhiteButtonStyle}"/>
         <!-- ListView z rolami -->
-        <ListView ItemsSource="{Binding Roles}"
-              Grid.Row="1">
+        <!-- ListView z rolami -->
+        <ListView ItemsSource="{Binding Roles}" Grid.Row="3" Grid.ColumnSpan="8" Background="#25272A" HorizontalContentAlignment="Stretch" Foreground="White">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Display Deliveries" DisplayMemberBinding="{Binding CanDisplayDeliveries}" />
-                    <GridViewColumn Header="Register Delivery" DisplayMemberBinding="{Binding CanRegisterDelivery}" />
-                    <GridViewColumn Header="Change Status" DisplayMemberBinding="{Binding CanChangeDeliveryStatus}" />
-                    <GridViewColumn Header="Display Roles" DisplayMemberBinding="{Binding CanDisplayRoles}" />
-                    <GridViewColumn Header="Add Role" DisplayMemberBinding="{Binding CanAddRole}" />
-                    <GridViewColumn Header="Display Users" DisplayMemberBinding="{Binding CanDisplayUsers}" />
-                    <GridViewColumn Header="Modify User" DisplayMemberBinding="{Binding CanModifyUser}" />
+                    <GridViewColumn Header="{DynamicResource RoleListingHeader1}" DisplayMemberBinding="{Binding Name}" Width="Auto"/>
+                    <GridViewColumn Header="{DynamicResource RoleListingHeader2}" DisplayMemberBinding="{Binding CanDisplayDeliveries}" Width="Auto"/>
+                    <GridViewColumn Header="{DynamicResource RoleListingHeader3}" DisplayMemberBinding="{Binding CanRegisterDelivery}" Width="Auto"/>
+                    <GridViewColumn Header="{DynamicResource RoleListingHeader4}" DisplayMemberBinding="{Binding CanChangeDeliveryStatus}" Width="Auto"/>
+                    <GridViewColumn Header="{DynamicResource RoleListingHeader5}" DisplayMemberBinding="{Binding CanDisplayRoles}" Width="Auto"/>
+                    <GridViewColumn Header="{DynamicResource RoleListingHeader6}" DisplayMemberBinding="{Binding CanAddRole}" Width="Auto"/>
+                    <GridViewColumn Header="{DynamicResource RoleListingHeader7}" DisplayMemberBinding="{Binding CanDisplayUsers}" Width="Auto"/>
+                    <GridViewColumn Header="{DynamicResource RoleListingHeader8}" DisplayMemberBinding="{Binding CanModifyUser}" Width="Auto"/>
                 </GridView>
             </ListView.View>
         </ListView>

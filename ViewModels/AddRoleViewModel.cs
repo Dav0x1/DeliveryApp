@@ -15,8 +15,10 @@ namespace DeliveryApp.ViewModels
     public class AddRoleViewModel : ViewModelBase
     {
         private readonly RoleSerivce _roleService;
+        private readonly ScreenManagerService _screenManagerService;
 
         public ICommand AddRoleCommand { get; }
+        public ICommand ReturnCommand { get; }
 
         private string _name;
         public string Name
@@ -106,11 +108,18 @@ namespace DeliveryApp.ViewModels
             }
         }
 
-        public AddRoleViewModel(RoleSerivce roleService)
+        public AddRoleViewModel(RoleSerivce roleService,ScreenManagerService screenManagerService)
         {
             _roleService = roleService;
+            _screenManagerService = screenManagerService;
 
             AddRoleCommand = new BaseCommand(AddRole);
+            ReturnCommand = new BaseCommand(Return);
+        }
+
+        private void Return(object parameter)
+        {
+            _screenManagerService.ShowRolesViewCommand.Execute(null);
         }
 
         private void AddRole(object parameter)

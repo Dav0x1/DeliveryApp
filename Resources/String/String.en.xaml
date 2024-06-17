@@ -38,5 +38,26 @@
     <System:String x:Key="Details">Details</System:String>
     <System:String x:Key="ChangeStatus">Change status</System:String>
 
-    <System:String x:Key="AddRole">Add Role</System:String>
+    <!-- Role listing View-->
+    <System:String x:Key="RoleListingTitle">All Roles</System:String>
+    <System:String x:Key="RoleListingButton">Add role</System:String>
+    <System:String x:Key="RoleListingHeader1">Name</System:String>
+    <System:String x:Key="RoleListingHeader2">Display Deliveries</System:String>
+    <System:String x:Key="RoleListingHeader3">Register Delivery</System:String>
+    <System:String x:Key="RoleListingHeader4">Change Status</System:String>
+    <System:String x:Key="RoleListingHeader5">Display Roles</System:String>
+    <System:String x:Key="RoleListingHeader6">Add Role</System:String>
+    <System:String x:Key="RoleListingHeader7">Display Users</System:String>
+    <System:String x:Key="RoleListingHeader8">Modify User</System:String>
+
+    <System:String x:Key="RoleNameLabel">Role Name:</System:String>
+    <System:String x:Key="CanDisplayDeliveriesCheckbox">Can Display Deliveries</System:String>
+    <System:String x:Key="CanRegisterDeliveryCheckbox">Can Register Delivery</System:String>
+    <System:String x:Key="CanChangeDeliveryStatusCheckbox">Can Change Delivery Status</System:String>
+    <System:String x:Key="CanDisplayRolesCheckbox">Can Display Roles</System:String>
+    <System:String x:Key="CanAddRoleCheckbox">Can Add Role</System:String>
+    <System:String x:Key="CanDisplayUsersCheckbox">Can Display Users</System:String>
+    <System:String x:Key="CanModifyUserCheckbox">Can Modify User</System:String>
+    <System:String x:Key="AddRoleButton">Add Role</System:String>
+    <System:String x:Key="Return">Return</System:String>
 </ResourceDictionary>

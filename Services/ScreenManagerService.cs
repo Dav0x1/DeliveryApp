@@ -42,7 +42,7 @@ namespace DeliveryApp.Services
             ShowRegisterDeliveryViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterDeliveryViewModel(deliveryService));
             ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel(deliveryService));
             ShowRolesViewCommand = new BaseCommand(o => CurrentViewModel = new RoleListingViewModel(roleService,this));
-            AddRoleViewCommand = new BaseCommand(o => CurrentViewModel = new AddRoleViewModel(roleService));
+            AddRoleViewCommand = new BaseCommand(o => CurrentViewModel = new AddRoleViewModel(roleService,this));
             ShowUsersViewCommand = new BaseCommand(o => CurrentViewModel = new UserListingViewModel());
             LogoutCommand = new BaseCommand(o => { ShowLoginViewCommand.Execute(null); authorizationService.logout(); });
 

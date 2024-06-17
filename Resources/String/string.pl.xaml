@@ -37,6 +37,27 @@
     <System:String x:Key="Title1">Lista wszystkich przesyłek</System:String>
     <System:String x:Key="Details">Szczegóły</System:String>
     <System:String x:Key="ChangeStatus">Zmień status</System:String>
+    
+    <!-- Role listing View-->
+    <System:String x:Key="RoleListingTitle">Wszystkie role</System:String>
+    <System:String x:Key="RoleListingButton">Dodaj rolę</System:String>
+    <System:String x:Key="RoleListingHeader1">Nazwa</System:String>
+    <System:String x:Key="RoleListingHeader2">Wyświetl dostawy</System:String>
+    <System:String x:Key="RoleListingHeader3">Rejestracja dostawy</System:String>
+    <System:String x:Key="RoleListingHeader4">Zmiana statusu</System:String>
+    <System:String x:Key="RoleListingHeader5">Wyświetl role</System:String>
+    <System:String x:Key="RoleListingHeader6">Dodaj rolę</System:String>
+    <System:String x:Key="RoleListingHeader7">Wyświetl użytkowników</System:String>
+    <System:String x:Key="RoleListingHeader8">Modyfikuj użytkownika</System:String>
 
-    <System:String x:Key="AddRole">Dodaj role</System:String>
+    <System:String x:Key="RoleNameLabel">Nazwa roli:</System:String>
+    <System:String x:Key="CanDisplayDeliveriesCheckbox">Może wyświetlać dostawy</System:String>
+    <System:String x:Key="CanRegisterDeliveryCheckbox">Może rejestrować dostawę</System:String>
+    <System:String x:Key="CanChangeDeliveryStatusCheckbox">Może zmieniać status dostawy</System:String>
+    <System:String x:Key="CanDisplayRolesCheckbox">Może wyświetlać role</System:String>
+    <System:String x:Key="CanAddRoleCheckbox">Może dodawać rolę</System:String>
+    <System:String x:Key="CanDisplayUsersCheckbox">Może wyświetlać użytkowników</System:String>
+    <System:String x:Key="CanModifyUserCheckbox">Może modyfikować użytkownika</System:String>
+    <System:String x:Key="AddRoleButton">Dodaj rolę</System:String>
+    <System:String x:Key="Return">Powrót</System:String>
 </ResourceDictionary>

@@ -6,34 +6,43 @@
              xmlns:local="clr-namespace:DeliveryApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-        <!-- Left Panel -->
+    <Grid Background="#25272A">
         <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="20">
-            <!-- Role Name -->
-            <Label Content="Role Name:" />
-            <TextBox Text="{Binding Name}" Width="200" Margin="0 5"/>
+            <Label Content="{DynamicResource RoleNameLabel}" Foreground="White" FontSize="14" Margin="0 5"/>
 
-            <!-- Privileges -->
+            <TextBox Text="{Binding Name}" Width="200" Margin="0 5"
+                 Foreground="White" Background="#333333" BorderBrush="#666666"
+                 BorderThickness="1" Padding="5" FontSize="14" VerticalContentAlignment="Center"/>
+
             <StackPanel Orientation="Vertical" Margin="0 5">
-                <CheckBox Content="Can Display Deliveries" IsChecked="{Binding CanDisplayDeliveries}" />
-                <CheckBox Content="Can Register Delivery" IsChecked="{Binding CanRegisterDelivery}" />
-                <CheckBox Content="Can Change Delivery Status" IsChecked="{Binding CanChangeDeliveryStatus}" />
-                <CheckBox Content="Can Display Roles" IsChecked="{Binding CanDisplayRoles}" />
-                <CheckBox Content="Can Add Role" IsChecked="{Binding CanAddRole}" />
-                <CheckBox Content="Can Display Users" IsChecked="{Binding CanDisplayUsers}" />
-                <CheckBox Content="Can Modify User" IsChecked="{Binding CanModifyUser}" />
+                <CheckBox Content="{DynamicResource CanDisplayDeliveriesCheckbox}" IsChecked="{Binding CanDisplayDeliveries}"
+                      Foreground="White" FontSize="14" Margin="0 5"/>
+                <CheckBox Content="{DynamicResource CanRegisterDeliveryCheckbox}" IsChecked="{Binding CanRegisterDelivery}"
+                      Foreground="White" FontSize="14" Margin="0 5"/>
+                <CheckBox Content="{DynamicResource CanChangeDeliveryStatusCheckbox}" IsChecked="{Binding CanChangeDeliveryStatus}"
+                      Foreground="White" FontSize="14" Margin="0 5"/>
+                <CheckBox Content="{DynamicResource CanDisplayRolesCheckbox}" IsChecked="{Binding CanDisplayRoles}"
+                      Foreground="White" FontSize="14" Margin="0 5"/>
+                <CheckBox Content="{DynamicResource CanAddRoleCheckbox}" IsChecked="{Binding CanAddRole}"
+                      Foreground="White" FontSize="14" Margin="0 5"/>
+                <CheckBox Content="{DynamicResource CanDisplayUsersCheckbox}" IsChecked="{Binding CanDisplayUsers}"
+                      Foreground="White" FontSize="14" Margin="0 5"/>
+                <CheckBox Content="{DynamicResource CanModifyUserCheckbox}" IsChecked="{Binding CanModifyUser}"
+                      Foreground="White" FontSize="14" Margin="0 5"/>
             </StackPanel>
 
-            <!-- Add Role Button -->
-            <Button Content="Add Role" Command="{Binding AddRoleCommand}" Margin="0 20"/>
+            <Button Content="{DynamicResource AddRoleButton}" Command="{Binding AddRoleCommand}" Margin="0 20"
+                Foreground="White" Background="#007ACC" BorderBrush="#007ACC"
+                BorderThickness="1" Padding="10 5" FontSize="14"
+                HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="100"
+                Cursor="Hand"/>
+            <Button Content="{DynamicResource Return}" Command="{Binding ReturnCommand}" Margin="0 20"
+                Foreground="White" Background="#007ACC" BorderBrush="#007ACC"
+                BorderThickness="1" Padding="10 5" FontSize="14"
+                HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="100"
+                Cursor="Hand"/>     
         </StackPanel>
 
-        <!-- Main Content Placeholder -->
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}" Margin="20"/>
     </Grid>
 </UserControl>
