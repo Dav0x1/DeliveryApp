@@ -53,7 +53,7 @@ namespace DeliveryApp.Views
 		{
 			if (sender is ListView listView && listView.SelectedItem is DeliveryViewModel selectedDelivery)
 			{
-				// No need to do anything here as each item already has its own DataContext
+
 			}
 		}
 

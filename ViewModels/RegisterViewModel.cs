@@ -53,16 +53,20 @@ namespace DeliveryApp.ViewModels
                 Password = _password
             };
 
-            // Sprawdzenie czy hasła zgodne
-            if (_password != _confirmPassword)
-            {
-                MessageBox.Show("Passwords do not match!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+			// Sprawdzenie czy hasła zgodne
+			if (_password != _confirmPassword)
+			{
+				string passwordMismatchMessage = Application.Current.Resources["PasswordsDoNotMatchMessage"].ToString();
+				string errorTitle = Application.Current.Resources["ErrorTitle"].ToString();
 
-            string info = _authorizationService.register(userModel);
+				MessageBox.Show(passwordMismatchMessage, errorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+				return;
+			}
 
-            MessageBox.Show(info, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
+			string info = _authorizationService.register(userModel);
+			string infoTitle = Application.Current.Resources["InformationTitle"].ToString();
+
+			MessageBox.Show(info, infoTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+		}
     }
 }

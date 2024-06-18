@@ -27,7 +27,20 @@ namespace DeliveryApp.ViewModels
 		private void LoadDeliveries()
 		{
 			List<Delivery> deliveries = _deliveryService.get();
-			Deliveries = new ObservableCollection<DeliveryViewModel>(deliveries.Select(d => new DeliveryViewModel(d, _deliveryService)));
+			Deliveries = new ObservableCollection<DeliveryViewModel>(deliveries.Select(d =>
+			{
+				var deliveryViewModel = new DeliveryViewModel(d, _deliveryService);
+				deliveryViewModel.OnDeliveryDeleted += HandleDeliveryDeleted;
+				return deliveryViewModel;
+			}));
+		}
+
+		private void HandleDeliveryDeleted(object sender, EventArgs e)
+		{
+			if (sender is DeliveryViewModel deliveryViewModel)
+			{
+				Deliveries.Remove(deliveryViewModel);
+			}
 		}
 	}
 }

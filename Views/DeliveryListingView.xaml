@@ -70,12 +70,25 @@
 
                         </Grid>
                         <Expander Header="{DynamicResource Details}" Background="#3D4045" Foreground="White"  Grid.ColumnSpan="6">
-                            <StackPanel Grid.ColumnSpan="6">
-                                <TextBlock Text="{Binding Delivery.Width, StringFormat= 'Szerokość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
-                                <TextBlock Text="{Binding Delivery.Length, StringFormat='Długość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
-                                <TextBlock Text="{Binding Delivery.Height, StringFormat='Wysokość: {0} cm'}" Style="{StaticResource TextBlockStyle}"/>
-                                <TextBlock Text="{Binding Delivery.RegistrationDate, StringFormat='Data rejestracji: {0:dd/MM/yyyy HH:mm}'}" Style="{StaticResource TextBlockStyle}"/>
-                            </StackPanel>
+                            <Grid Grid.ColumnSpan="6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding Delivery.Width, StringFormat= 'Szerokość: {0} cm'}" Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.ColumnSpan="2"/>
+                                <TextBlock Text="{Binding Delivery.Length, StringFormat='Długość: {0} cm'}" Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.ColumnSpan="2"/>
+                                <TextBlock Text="{Binding Delivery.Height, StringFormat='Wysokość: {0} cm'}" Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.ColumnSpan="2"/>
+
+                                <TextBlock Text="{Binding Delivery.RegistrationDate, StringFormat='Data rejestracji: {0:dd/MM/yyyy HH:mm}'}" Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="0"/>
+                                <Button Content="{DynamicResource RemoveDelivery}" Command="{Binding DeleteDeliveryCommand}" Style="{StaticResource WhiteButtonStyle}" Margin="0 0 5 5" Grid.Row="3" Grid.Column="1"/>
+                            </Grid>
                         </Expander>
                     </StackPanel>
                 </DataTemplate>

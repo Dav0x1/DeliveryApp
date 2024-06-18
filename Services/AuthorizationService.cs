@@ -6,6 +6,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DeliveryApp.Helpers;
+using DeliveryApp.Commands;
+using DeliveryApp.Services;
+using System.Windows;
 
 namespace DeliveryApp.Services
 {
@@ -41,23 +44,24 @@ namespace DeliveryApp.Services
                 OnLoginStatusChanged();
                 return String.Empty;
             }
-            return "Incorrect login details";
-        }
+			return Application.Current.Resources["IncorrectLoginDetails"].ToString();
+		}
 
         public string register(User user)
         {
-            if (user.Username!= null && !ValidateUsername(user.Username))
-                return "Username doesn't meet requirements";
+			if (user.Username != null && !ValidateUsername(user.Username))
+				return Application.Current.Resources["UsernameDoesntMeetRequirements"].ToString();
 
-            if (user.Password != null && !ValidatePassword(user.Password))
-                return "Password doesn't meet requirements";
+			if (user.Password != null && !ValidatePassword(user.Password))
+				return Application.Current.Resources["PasswordDoesntMeetRequirements"].ToString();
 
-            if (!_dataService.addUser(user))
-            {
-                return "User already exists or other error occure";
-            }
-            return "User has been added";
-        }
+			if (!_dataService.addUser(user))
+			{
+				return Application.Current.Resources["UserAlreadyExistsOrError"].ToString();
+			}
+
+			return Application.Current.Resources["UserAddedSuccessfully"].ToString();
+		}
 
         public void logout()
         {

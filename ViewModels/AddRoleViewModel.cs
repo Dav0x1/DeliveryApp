@@ -140,10 +140,13 @@ namespace DeliveryApp.ViewModels
 
             _roleService.addRole(newRole);
 
-            MessageBox.Show("Role added successfully!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+			string roleAddedMessage = Application.Current.Resources["RoleAddedMessage"].ToString();
+			string infoTitle = Application.Current.Resources["InformationTitle"].ToString();
 
-            // Clear form fields
-            Name = string.Empty;
+			MessageBox.Show(roleAddedMessage, infoTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+
+			// Clear form fields
+			Name = string.Empty;
             CanDisplayDeliveries = false;
             CanRegisterDelivery = false;
             CanChangeDeliveryStatus = false;

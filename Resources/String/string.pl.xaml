@@ -43,6 +43,7 @@
     <System:String x:Key="DeliveryListingStatus">Obecny Status</System:String>
     <System:String x:Key="Details">Szczegóły</System:String>
     <System:String x:Key="ChangeStatus">Zmień status</System:String>
+    <System:String x:Key="RemoveDelivery">Usuń dostawę</System:String>
     
     <!-- Role listing View-->
     <System:String x:Key="RoleListingTitle">Wszystkie role</System:String>
@@ -70,4 +71,25 @@
     <System:String x:Key="CanModifyUserCheckbox">Może modyfikować użytkownika</System:String>
     <System:String x:Key="AddRoleButton">Dodaj rolę</System:String>
     <System:String x:Key="Return">Powrót</System:String>
+    
+    <!-- Komunikaty-->
+    <System:String x:Key="IncorrectLoginDetails">Niepoprawne dane logowania!</System:String>
+    <System:String x:Key="UsernameDoesntMeetRequirements">Nazwa użytkownika nie spełnia wymagań!</System:String>
+    <System:String x:Key="PasswordDoesntMeetRequirements">Hasło nie spełnia wymagań!</System:String>
+    <System:String x:Key="UserAlreadyExistsOrError">Użytkownik już istnieje lub wystąpił inny błąd!</System:String>
+    <System:String x:Key="UserAddedSuccessfully">Użytkownik został pomyślnie dodany!</System:String>
+
+    <System:String x:Key="PasswordsDoNotMatchMessage">Hasła nie są takie same!</System:String>
+
+    <System:String x:Key="FormErrorMessage">Proszę poprawić błędy w formularzu i wypełnić wszystkie pola.</System:String>
+    <System:String x:Key="ErrorTitle">Błąd</System:String>
+
+    <System:String x:Key="DeliveryRegisteredMessage">Dostawa została pomyślnie zarejestrowana!</System:String>
+    <System:String x:Key="InformationTitle">Informacja</System:String>
+    
+    <System:String x:Key="RoleAddedMessage">Rola została pomyślnie dodana!</System:String>
+
+    <System:String x:Key="DeleteConfirmationMessage">Czy na pewno chcesz usunąć dostawę?</System:String>
+    <System:String x:Key="DeleteConfirmationTitle">Potwierdzenie usunięcia</System:String>
+
 </ResourceDictionary>

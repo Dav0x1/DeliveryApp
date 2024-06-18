@@ -81,7 +81,10 @@ namespace DeliveryApp.ViewModels
 		{
 			if (HasErrors || !AllFieldsFilled)
 			{
-				MessageBox.Show("Please correct the errors in the form and fill all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				string errorMessage = Application.Current.Resources["FormErrorMessage"].ToString();
+				string errorTitle = Application.Current.Resources["ErrorTitle"].ToString();
+
+				MessageBox.Show(errorMessage, errorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
 				return;
 			}
 
@@ -99,7 +102,10 @@ namespace DeliveryApp.ViewModels
 
 			_deliveryService.add(newDelivery);
 
-			MessageBox.Show("Delivery registered successfully!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+			string successMessage = Application.Current.Resources["DeliveryRegisteredMessage"].ToString();
+			string infoTitle = Application.Current.Resources["InformationTitle"].ToString();
+
+			MessageBox.Show(successMessage, infoTitle, MessageBoxButton.OK, MessageBoxImage.Information);
 
 			// Clear form fields
 			SenderAddress = string.Empty;
