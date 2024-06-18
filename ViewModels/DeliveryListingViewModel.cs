@@ -13,13 +13,27 @@ namespace DeliveryApp.ViewModels
 {
     public class DeliveryListingViewModel : ViewModelBase
     {
+        private AuthorizationService _authorizationService;
+        public AuthorizationService AuthorizationService
+        {
+            get => _authorizationService;
+            set
+            {
+                if (_authorizationService != value)
+                {
+                    _authorizationService = value;
+                    OnPropertyChange(nameof(AuthorizationService));
+                }
+            }
+        }
 
-		private readonly DeliveryService _deliveryService;
+        private readonly DeliveryService _deliveryService;
 
 		public ObservableCollection<DeliveryViewModel> Deliveries { get; set; }
 
-		public DeliveryListingViewModel(DeliveryService deliveryService)
+		public DeliveryListingViewModel(DeliveryService deliveryService,AuthorizationService authorizationService)
 		{
+            AuthorizationService = authorizationService;
 			_deliveryService = deliveryService;
 			LoadDeliveries();
 		}

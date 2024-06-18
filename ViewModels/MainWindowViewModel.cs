@@ -16,6 +16,19 @@ namespace DeliveryApp.ViewModels
     public class MainWindowViewModel : ViewModelBase
     {
         private AuthorizationService _authorizationService;
+        public AuthorizationService AuthorizationService
+        {
+            get => _authorizationService;
+            set
+            {
+                if (_authorizationService != value)
+                {
+                    _authorizationService = value;
+                    OnPropertyChange(nameof(AuthorizationService));
+                }
+            }
+        }
+
         private readonly ScreenManagerService _screenManagerService;
         public ScreenManagerService ScreenManagerService
         {

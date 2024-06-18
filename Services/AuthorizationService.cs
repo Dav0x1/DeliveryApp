@@ -9,17 +9,30 @@ using DeliveryApp.Helpers;
 using DeliveryApp.Commands;
 using DeliveryApp.Services;
 using System.Windows;
+using DeliveryApp.ViewModels;
 
 namespace DeliveryApp.Services
 {
-    public class AuthorizationService
+    public class AuthorizationService : ViewModelBase
     {
         private readonly DataService _dataService;
 
         public event EventHandler LoginStatusChanged;
         private bool isLogged = false;
-        private User? loggedUser = null;
+        private User? _loggedUser = null;
 
+        public User? LoggedUser
+        {
+            get => _loggedUser;
+            set
+            {
+                if (_loggedUser != value)
+                {
+                    _loggedUser = value;
+                    OnPropertyChange(nameof(LoggedUser));
+                }
+            }
+        }
 
         public AuthorizationService(DataService dataService)
         {
@@ -34,7 +47,7 @@ namespace DeliveryApp.Services
             {
                 if ((u.Username == user.Username) && (u.Password == user.Password))
                 {
-                    loggedUser = u;
+                    LoggedUser = u;
                     isLogged = true;
                     break;
                 }
@@ -66,7 +79,7 @@ namespace DeliveryApp.Services
         public void logout()
         {
             isLogged = false;
-            loggedUser = null;
+            LoggedUser = null;
             _dataService.saveChange();
             OnLoginStatusChanged();
         }

@@ -30,10 +30,9 @@ namespace DeliveryApp.Views
 		public DeliveryListingView()
         {
             InitializeComponent();
+        }
 
-		}
-
-		private void StatusListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void StatusListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			if (sender is ListBox listBox && listBox.SelectedItem is DeliveryStatus selectedStatus)
 			{

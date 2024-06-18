@@ -13,6 +13,20 @@ namespace DeliveryApp.ViewModels
 {
     public class RoleListingViewModel : ViewModelBase
     {
+        private AuthorizationService _authorizationService;
+        public AuthorizationService AuthorizationService
+        {
+            get => _authorizationService;
+            set
+            {
+                if (_authorizationService != value)
+                {
+                    _authorizationService = value;
+                    OnPropertyChange(nameof(AuthorizationService));
+                }
+            }
+        }
+
         private readonly RoleSerivce _roleSerivce;
         private readonly ScreenManagerService _screenManagerService;
         public ICommand AddRoleViewCommand { get; }
@@ -28,8 +42,9 @@ namespace DeliveryApp.ViewModels
             }
         }
 
-        public RoleListingViewModel(RoleSerivce roleService, ScreenManagerService screenManagerService)
+        public RoleListingViewModel(RoleSerivce roleService, ScreenManagerService screenManagerService,AuthorizationService authorizationService)
         {
+            _authorizationService = authorizationService;
             _roleSerivce = roleService;
             _screenManagerService = screenManagerService;
 

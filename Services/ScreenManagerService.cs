@@ -40,8 +40,8 @@ namespace DeliveryApp.Services
             ShowLoginViewCommand = new BaseCommand(o => CurrentViewModel = new LoginViewModel(authorizationService));
             ShowRegisterViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterViewModel(authorizationService));
             ShowRegisterDeliveryViewCommand = new BaseCommand(o => CurrentViewModel = new RegisterDeliveryViewModel(deliveryService));
-            ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel(deliveryService));
-            ShowRolesViewCommand = new BaseCommand(o => CurrentViewModel = new RoleListingViewModel(roleService,this));
+            ShowDeliveriesViewCommand = new BaseCommand(o => CurrentViewModel = new DeliveryListingViewModel(deliveryService,authorizationService));
+            ShowRolesViewCommand = new BaseCommand(o => CurrentViewModel = new RoleListingViewModel(roleService,this,authorizationService));
             AddRoleViewCommand = new BaseCommand(o => CurrentViewModel = new AddRoleViewModel(roleService,this));
             ShowUsersViewCommand = new BaseCommand(o => CurrentViewModel = new UserListingViewModel(dataService));
             LogoutCommand = new BaseCommand(o => { ShowLoginViewCommand.Execute(null); authorizationService.logout(); });

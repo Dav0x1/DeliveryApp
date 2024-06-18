@@ -35,6 +35,8 @@
         </DataTemplate>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <helpers:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter"/>
+        <helpers:LoggedUserToVisibilityConverter x:Key="LoggedUserToVisibilityConverter"/>
+
     </Window.Resources>
 
     <Grid>
@@ -90,7 +92,7 @@
                 <MenuItem Header="{DynamicResource MenuItemHeader3}"
                           Command="{Binding ScreenManagerService.ShowDeliveriesViewCommand}"
                           Template="{StaticResource Menu_Template}"
-                          Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                          Visibility="{Binding AuthorizationService.LoggedUser, Converter={StaticResource LoggedUserToVisibilityConverter}, ConverterParameter=CanDisplayDeliveries}">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Assets/shipping-fast.png"
                                 Width="20" Height="20" />
@@ -101,7 +103,7 @@
                 <MenuItem Header="{DynamicResource MenuItemHeader3-add}"
                           Command="{Binding ScreenManagerService.ShowRegisterDeliveryViewCommand}"
                           Template="{StaticResource Menu_Template}"
-                          Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                          Visibility="{Binding AuthorizationService.LoggedUser, Converter={StaticResource LoggedUserToVisibilityConverter}, ConverterParameter=CanRegisterDelivery}">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Assets/delivery-man.png"
                                 Width="20" Height="20" />
@@ -112,7 +114,7 @@
                 <MenuItem Header="{DynamicResource MenuItemHeader4}"
                           Command="{Binding ScreenManagerService.ShowRolesViewCommand}"
                           Template="{StaticResource Menu_Template}"
-                          Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                          Visibility="{Binding AuthorizationService.LoggedUser, Converter={StaticResource LoggedUserToVisibilityConverter}, ConverterParameter=CanDisplayRoles}">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Assets/user-trust.png"
                                 Width="20" Height="20" />
@@ -123,7 +125,7 @@
                 <MenuItem Header="{DynamicResource MenuItemHeader5}"
                           Command="{Binding ScreenManagerService.ShowUsersViewCommand}"
                           Template="{StaticResource Menu_Template}"
-                          Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                          Visibility="{Binding AuthorizationService.LoggedUser, Converter={StaticResource LoggedUserToVisibilityConverter}, ConverterParameter=CanDisplayUsers}">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Assets/users.png"
                                 Width="20" Height="20" />
