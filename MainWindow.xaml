@@ -103,7 +103,7 @@
                           Template="{StaticResource Menu_Template}"
                           Visibility="{Binding IsLogged, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <MenuItem.Icon>
-                        <Image Source="/Resources/Assets/shipping-fast.png"
+                        <Image Source="/Resources/Assets/delivery-man.png"
                                 Width="20" Height="20" />
                     </MenuItem.Icon>
                 </MenuItem>
