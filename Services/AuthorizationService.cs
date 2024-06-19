@@ -86,18 +86,12 @@ namespace DeliveryApp.Services
 
         private bool ValidateUsername(string username)
         {
-            // NEED TO BE REMOVE
-            return true;
-
             var usernamePattern = @"^[a-zA-Z0-9_]{5,20}$";
             return Regex.IsMatch(username, usernamePattern);
         }
 
         private bool ValidatePassword(string password)
         {
-            // NEED TO BE REMOVE
-            return true;
-
             if (password.Length < 8)
             {
                 return false;
