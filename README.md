@@ -34,3 +34,24 @@ A desktop application for managing a courier company. It allows users to add shi
 - **Entity Framework Core**
 
 ## Screenshots from application
+
+### Login
+![Login](Resources/Screenshots/Login.png)
+
+### Register
+![Register](Resources/Screenshots/Register.png)
+
+### Roles
+![Roles](Resources/Screenshots/Roles.png)
+
+### Deliveries
+![Deliveries](Resources/Screenshots/Deliveries.png)
+
+### All Users
+![All Users](Resources/Screenshots/AllUsers.png)
+
+### Add Role
+![Add Role](Resources/Screenshots/AddRole.png)
+
+### Add Delivery
+![Add Delivery](Resources/Screenshots/AddDelivery.png)
